@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangingViewController">
+            <connections>
+                <outlet property="dateLabel" destination="a7U-lV-EdK" id="AUN-CK-NDW"/>
+                <outlet property="enableSwitch" destination="AVQ-bn-z6h" id="1V9-1q-F8D"/>
+                <outlet property="messageLabel" destination="EeP-go-3iQ" id="SO1-aj-AEF"/>
+                <outlet property="peopleCounter" destination="cJ4-ys-ZiC" id="2Xi-iV-Q5x"/>
+                <outlet property="titleTextField" destination="UeO-fd-kKO" id="enA-eT-l11"/>
+                <outlet property="view" destination="iN0-l3-epB" id="A3K-TA-E6i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztR-W6-jJ9" userLabel="NavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                    <subviews>
+                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="mwS-kj-vEJ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgS-Cg-3p7" userLabel="DoneButton">
+                            <rect key="frame" x="285" y="33" width="24" height="24"/>
+                            <state key="normal" image="ic_done_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="doneButtonClick:" destination="-1" eventType="touchUpInside" id="rwT-0j-swa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2en-1W-v8N" userLabel="DeleteButton">
+                            <rect key="frame" x="243" y="34" width="24" height="24"/>
+                            <state key="normal" image="ic_delete_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteButtonClick:" destination="-1" eventType="touchUpInside" id="vCv-Ru-hZc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fQ-nn-AWp" userLabel="BackButton">
+                            <rect key="frame" x="8" y="33" width="24" height="24"/>
+                            <state key="normal" image="ic_arrow_back_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="1NF-xE-bpr"/>
+                                <action selector="deleteButtonClick:" destination="-1" eventType="touchUpInside" id="7a9-xK-pYm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заголовок" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-fd-kKO">
+                    <rect key="frame" x="40" y="83" width="272" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_bookmark_border" translatesAutoresizingMaskIntoConstraints="NO" id="Qo5-x4-VIN">
+                    <rect key="frame" x="8" y="86" width="24" height="24"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cRa-va-ugc">
+                    <rect key="frame" x="8" y="121" width="300" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_access_time" translatesAutoresizingMaskIntoConstraints="NO" id="jcl-cc-LTx">
+                            <rect key="frame" x="0.0" y="7" width="24" height="24"/>
+                        </imageView>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-GT-15v">
+                            <rect key="frame" x="32" y="3" width="272" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Дата">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:30 13.03.2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7U-lV-EdK">
+                            <rect key="frame" x="112" y="9" width="155" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="PIo-sx-oJi">
+                            <rect key="frame" x="276" y="8" width="24" height="24"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Auj-8I-juN">
+                    <rect key="frame" x="8" y="169" width="300" height="40"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFV-kr-7nc">
+                            <rect key="frame" x="32" y="3" width="272" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Получатели">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-ys-ZiC">
+                            <rect key="frame" x="224" y="9" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="XSd-XG-8Ao">
+                            <rect key="frame" x="276" y="8" width="24" height="24"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_face" translatesAutoresizingMaskIntoConstraints="NO" id="IDa-zy-X2Z">
+                            <rect key="frame" x="0.0" y="7" width="24" height="24"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePW-CL-EbW">
+                    <rect key="frame" x="8" y="217" width="300" height="40"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-IY-Qem" userLabel="Сообщение">
+                            <rect key="frame" x="32" y="3" width="161" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Разрешить отправку">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_power_settings_new" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-7F-Yaw">
+                            <rect key="frame" x="0.0" y="7" width="24" height="24"/>
+                        </imageView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-bn-z6h">
+                            <rect key="frame" x="243" y="4" width="51" height="31"/>
+                            <color key="onTintColor" red="0.070588235294117646" green="0.74509803921568629" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zaN-7G-4cF">
+                    <rect key="frame" x="10" y="265" width="300" height="40"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-go-3iQ" userLabel="Сообщение">
+                            <rect key="frame" x="32" y="3" width="272" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Сообщение">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="uQh-qb-ju4">
+                            <rect key="frame" x="276" y="8" width="24" height="24"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_message" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-yr-hxd">
+                            <rect key="frame" x="0.0" y="7" width="24" height="24"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_access_time" width="48" height="48"/>
+        <image name="ic_arrow_back_white" width="48" height="48"/>
+        <image name="ic_bookmark_border" width="48" height="48"/>
+        <image name="ic_delete_white" width="48" height="48"/>
+        <image name="ic_done_white" width="48" height="48"/>
+        <image name="ic_face" width="48" height="48"/>
+        <image name="ic_keyboard_arrow_right" width="48" height="48"/>
+        <image name="ic_message" width="48" height="48"/>
+        <image name="ic_power_settings_new" width="48" height="48"/>
+        <image name="top_line_bar.png" width="1" height="127"/>
+    </resources>
+</document>

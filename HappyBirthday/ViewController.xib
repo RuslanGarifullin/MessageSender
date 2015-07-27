@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="birthdayTableView" destination="9Gl-B6-9yf" id="JNt-Oh-Q2L"/>
+                <outlet property="haveNothingNotificationView" destination="gJo-mg-3yR" id="k3S-ti-kca"/>
+                <outlet property="view" destination="iN0-l3-epB" id="urb-6I-oS8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Gl-B6-9yf">
+                    <rect key="frame" x="0.0" y="65" width="320" height="414"/>
+                    <color key="separatorColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-mg-3yR" userLabel="HaveNothing">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.33699999999999997" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Здесь будут ваши сообщения." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-id-mlr">
+                            <rect key="frame" x="50" y="260" width="220" height="21"/>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" alpha="0.086999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_notifications" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-Wr-0jo">
+                            <rect key="frame" x="112" y="156" width="96" height="96"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvE-RO-Bzj" userLabel="NavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                    <subviews>
+                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="dFw-hJ-qbh">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtQ-kW-5gf">
+                            <rect key="frame" x="285" y="33" width="24" height="24"/>
+                            <state key="normal" image="ic_add_white.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addNewBirthday:" destination="-1" eventType="touchUpInside" id="jId-Rj-zWF"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glw-9S-5cC">
+                            <rect key="frame" x="240" y="34" width="24" height="24"/>
+                            <state key="normal" image="ic_search_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_add_white.png" width="48" height="48"/>
+        <image name="ic_notifications" width="48" height="48"/>
+        <image name="ic_search_white" width="48" height="48"/>
+        <image name="top_line_bar.png" width="1" height="127"/>
+    </resources>
+</document>
