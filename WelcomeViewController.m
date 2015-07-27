@@ -20,11 +20,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)vkEnterButtonClick:(id)sender
 {
     [[self navigationController] pushViewController:[[VKAuthViewController alloc] init] animated:YES];
