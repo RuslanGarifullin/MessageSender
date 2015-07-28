@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3447CBA71B6799E2008B49E3 /* logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3447CBA61B6799E2008B49E3 /* logo_white.png */; };
+		3447CBAB1B679CC8008B49E3 /* TANavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3447CBAA1B679CC8008B49E3 /* TANavigationBar.m */; };
+		3447CBAD1B679CE3008B49E3 /* TANavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3447CBAC1B679CE3008B49E3 /* TANavigationBar.xib */; };
 		34854B3C1B6630B000DF524D /* welcome_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 34854B3B1B6630B000DF524D /* welcome_logo.png */; };
 		34854B411B66314D00DF524D /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34854B401B66314D00DF524D /* WelcomeViewController.xib */; };
 		34854B431B6631E400DF524D /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 34854B421B6631E400DF524D /* logo.png */; };
@@ -80,6 +83,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3447CBA41B6782C0008B49E3 /* HappyBirthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HappyBirthday.app; path = "/Users/paltipa/Documents/GitProject/MessageSender/build/Debug-iphoneos/HappyBirthday.app"; sourceTree = "<absolute>"; };
+		3447CBA51B6782C0008B49E3 /* HappyBirthdayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HappyBirthdayTests.xctest; path = "/Users/paltipa/Documents/GitProject/MessageSender/build/Debug-iphoneos/HappyBirthdayTests.xctest"; sourceTree = "<absolute>"; };
+		3447CBA61B6799E2008B49E3 /* logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_white.png; sourceTree = "<group>"; };
+		3447CBA91B679CC8008B49E3 /* TANavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TANavigationBar.h; sourceTree = "<group>"; };
+		3447CBAA1B679CC8008B49E3 /* TANavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TANavigationBar.m; sourceTree = "<group>"; };
+		3447CBAC1B679CE3008B49E3 /* TANavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TANavigationBar.xib; sourceTree = "<group>"; };
 		34854B3B1B6630B000DF524D /* welcome_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_logo.png; sourceTree = "<group>"; };
 		34854B401B66314D00DF524D /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		34854B421B6631E400DF524D /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -97,7 +106,6 @@
 		34854B581B665B7100DF524D /* ic_notifications@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_notifications@2x.png"; sourceTree = "<group>"; };
 		34854B591B665B7100DF524D /* ic_notifications@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_notifications@3x.png"; sourceTree = "<group>"; };
 		34854B5A1B665B7100DF524D /* ic_notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_notifications.png; sourceTree = "<group>"; };
-		3493BF031B64F1C500F80989 /* HappyBirthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HappyBirthday.app; path = "/Users/paltipa/Documents/HappyBirthday/build/Debug-iphoneos/HappyBirthday.app"; sourceTree = "<absolute>"; };
 		3493BF071B64F1C500F80989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3493BF081B64F1C500F80989 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3493BF0A1B64F1C500F80989 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,7 +114,6 @@
 		3493BF0E1B64F1C500F80989 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3493BF131B64F1C500F80989 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3493BF161B64F1C500F80989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3493BF1C1B64F1C500F80989 /* HappyBirthdayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HappyBirthdayTests.xctest; path = "/Users/paltipa/Documents/HappyBirthday/build/Debug-iphoneos/HappyBirthdayTests.xctest"; sourceTree = "<absolute>"; };
 		3493BF211B64F1C500F80989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3493BF221B64F1C500F80989 /* HappyBirthdayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HappyBirthdayTests.m; sourceTree = "<group>"; };
 		3493BF2C1B64F2CC00F80989 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -171,6 +178,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3447CBA81B679C83008B49E3 /* CustomNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				3447CBA91B679CC8008B49E3 /* TANavigationBar.h */,
+				3447CBAA1B679CC8008B49E3 /* TANavigationBar.m */,
+				3447CBAC1B679CE3008B49E3 /* TANavigationBar.xib */,
+			);
+			name = CustomNavigationBar;
+			sourceTree = "<group>";
+		};
 		3493BEFA1B64F1C500F80989 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +199,7 @@
 		3493BF051B64F1C500F80989 /* HappyBirthday */ = {
 			isa = PBXGroup;
 			children = (
+				3447CBA81B679C83008B49E3 /* CustomNavigationBar */,
 				3493BF061B64F1C500F80989 /* Supporting Files */,
 				3493BF4B1B651D9D00F80989 /* Models */,
 				3493BF131B64F1C500F80989 /* Images.xcassets */,
@@ -234,6 +252,7 @@
 		3493BF341B65070E00F80989 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3447CBA61B6799E2008B49E3 /* logo_white.png */,
 				34854B581B665B7100DF524D /* ic_notifications@2x.png */,
 				34854B591B665B7100DF524D /* ic_notifications@3x.png */,
 				34854B5A1B665B7100DF524D /* ic_notifications.png */,
@@ -311,7 +330,7 @@
 			);
 			name = HappyBirthday;
 			productName = HappyBirthday;
-			productReference = 3493BF031B64F1C500F80989 /* HappyBirthday.app */;
+			productReference = 3447CBA41B6782C0008B49E3 /* HappyBirthday.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3493BF1B1B64F1C500F80989 /* HappyBirthdayTests */ = {
@@ -329,7 +348,7 @@
 			);
 			name = HappyBirthdayTests;
 			productName = HappyBirthdayTests;
-			productReference = 3493BF1C1B64F1C500F80989 /* HappyBirthdayTests.xctest */;
+			productReference = 3447CBA51B6782C0008B49E3 /* HappyBirthdayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -412,6 +431,7 @@
 				3493BFAE1B65891400F80989 /* ic_delete_white.png in Resources */,
 				3493BFCA1B65932E00F80989 /* ic_message@3x.png in Resources */,
 				3493BFBE1B65931400F80989 /* ic_face@3x.png in Resources */,
+				3447CBA71B6799E2008B49E3 /* logo_white.png in Resources */,
 				34854B521B663F2A00DF524D /* help_button.png in Resources */,
 				3493BFA21B65827F00F80989 /* top_line_bar.png in Resources */,
 				3493BFC51B65932000F80989 /* ic_bookmark_border.png in Resources */,
@@ -424,6 +444,7 @@
 				3493BFA81B6584D400F80989 /* ic_done_white.png in Resources */,
 				3493BF5E1B654D0000F80989 /* ChangingViewController.xib in Resources */,
 				3493BFAD1B65891400F80989 /* ic_delete_white@3x.png in Resources */,
+				3447CBAD1B679CE3008B49E3 /* TANavigationBar.xib in Resources */,
 				3493BFCF1B6594A700F80989 /* ic_keyboard_arrow_right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +465,7 @@
 			files = (
 				3493BF0F1B64F1C500F80989 /* ViewController.m in Sources */,
 				3493BF541B651E0A00F80989 /* TAFriend.m in Sources */,
+				3447CBAB1B679CC8008B49E3 /* TANavigationBar.m in Sources */,
 				3493BF511B651DFB00F80989 /* TABirthday.m in Sources */,
 				34854B561B6641E200DF524D /* VKAuthViewController.m in Sources */,
 				3493BF0C1B64F1C500F80989 /* AppDelegate.m in Sources */,
