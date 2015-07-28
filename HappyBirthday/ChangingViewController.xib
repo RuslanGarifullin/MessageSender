@@ -19,42 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztR-W6-jJ9" userLabel="NavigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
-                    <subviews>
-                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="mwS-kj-vEJ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgS-Cg-3p7" userLabel="DoneButton">
-                            <rect key="frame" x="285" y="33" width="24" height="24"/>
-                            <state key="normal" image="ic_done_white">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="doneButtonClick:" destination="-1" eventType="touchUpInside" id="rwT-0j-swa"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2en-1W-v8N" userLabel="DeleteButton">
-                            <rect key="frame" x="243" y="34" width="24" height="24"/>
-                            <state key="normal" image="ic_delete_white">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="deleteButtonClick:" destination="-1" eventType="touchUpInside" id="vCv-Ru-hZc"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fQ-nn-AWp" userLabel="BackButton">
-                            <rect key="frame" x="8" y="33" width="24" height="24"/>
-                            <state key="normal" image="ic_arrow_back_white">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="1NF-xE-bpr"/>
-                                <action selector="deleteButtonClick:" destination="-1" eventType="touchUpInside" id="7a9-xK-pYm"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заголовок" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-fd-kKO">
                     <rect key="frame" x="40" y="83" width="272" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -129,7 +93,7 @@
                         <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_power_settings_new" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-7F-Yaw">
                             <rect key="frame" x="0.0" y="7" width="24" height="24"/>
                         </imageView>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-bn-z6h">
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-bn-z6h">
                             <rect key="frame" x="243" y="4" width="51" height="31"/>
                             <color key="onTintColor" red="0.070588235294117646" green="0.74509803921568629" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                         </switch>
@@ -163,14 +127,10 @@
     </objects>
     <resources>
         <image name="ic_access_time" width="48" height="48"/>
-        <image name="ic_arrow_back_white" width="48" height="48"/>
         <image name="ic_bookmark_border" width="48" height="48"/>
-        <image name="ic_delete_white" width="48" height="48"/>
-        <image name="ic_done_white" width="48" height="48"/>
         <image name="ic_face" width="48" height="48"/>
         <image name="ic_keyboard_arrow_right" width="48" height="48"/>
         <image name="ic_message" width="48" height="48"/>
         <image name="ic_power_settings_new" width="48" height="48"/>
-        <image name="top_line_bar.png" width="1" height="127"/>
     </resources>
 </document>

@@ -8,8 +8,12 @@
 
 #import "VKAuthViewController.h"
 #import "ViewController.h"
+#import "TANavigationBar.h"
+
 
 @interface VKAuthViewController () <UIWebViewDelegate>
+
+@property (nonatomic, strong) TANavigationBar *navBar;
 
 @end
 
@@ -18,13 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [storage cookies]) {
         [storage deleteCookie:cookie];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
+    */
+    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeBackSearchAdd andTitle:@"Ваши сообщения"];
+    [self.view addSubview: self.navBar.view];
     
-    // Do any additional setup after loading the view from its nib.
     self.vkAuthWebView.delegate = self;
     [self.vkAuthWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://oauth.vk.com/authorize?client_id=4877262&scope=friends,offline,messages&redirect_uri=oauth.vk.com/blank.html&display=touch&response_type=token"]]];
 }
@@ -43,9 +50,7 @@
         [gotValues setObject:[data objectAtIndex:3] forKey:@"expires_in"];
         [gotValues setObject:[data objectAtIndex:5] forKey:@"user_id"];
         ViewController *viewController = [[ViewController alloc] init];
-        
         [[self navigationController] pushViewController:viewController animated:YES];
-        
     } else {
         NSRange textRange = [[currentURL lowercaseString] rangeOfString:@"error"];
         if(textRange.location != NSNotFound) {
@@ -67,7 +72,7 @@
 
 - (IBAction)backButtonClick:(id)sender
 {
-    [[self navigationController] popToRootViewControllerAnimated:YES];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 /*

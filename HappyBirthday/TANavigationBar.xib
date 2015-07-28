@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TANavigationBar">
+            <connections>
+                <outlet property="addButton" destination="BRU-Fv-gfF" id="FCV-48-ce0"/>
+                <outlet property="backButton" destination="gCf-4S-uig" id="JF2-VI-ovV"/>
+                <outlet property="deleteButton" destination="xlp-ka-Ajr" id="CuQ-rb-DxU"/>
+                <outlet property="doneButton" destination="bCv-3H-7uB" id="A7w-fl-Dbm"/>
+                <outlet property="navBarLabel" destination="rpW-XU-kWU" id="K4T-t0-sg1"/>
+                <outlet property="searchButton" destination="5x3-ql-UNe" id="SMx-po-GSw"/>
+                <outlet property="view" destination="Y5l-Kj-fl0" id="csh-DD-YBI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Y5l-Kj-fl0" userLabel="NavigationBar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-bH-tlP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-3H-7uB" userLabel="DoneButton">
+                    <rect key="frame" x="285" y="33" width="24" height="24"/>
+                    <state key="normal" image="ic_done_white">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonClicked:" destination="-1" eventType="touchUpInside" id="Ocr-Ry-ehZ"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-ka-Ajr" userLabel="DeleteButton">
+                    <rect key="frame" x="243" y="34" width="24" height="24"/>
+                    <state key="normal" image="ic_delete_white">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteButtonClicked:" destination="-1" eventType="touchUpInside" id="EnV-zH-lG5"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Fv-gfF" userLabel="AddButton">
+                    <rect key="frame" x="285" y="33" width="24" height="24"/>
+                    <state key="normal" image="ic_add_white.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addButtonClicked:" destination="-1" eventType="touchUpInside" id="Bef-kq-385"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ql-UNe" userLabel="SearchButton">
+                    <rect key="frame" x="243" y="34" width="24" height="24"/>
+                    <state key="normal" image="ic_search_white">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="bir-r5-j3w"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-4S-uig" userLabel="BackButton">
+                    <rect key="frame" x="8" y="33" width="24" height="24"/>
+                    <state key="normal" image="ic_arrow_back_white">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonClicked:" destination="-1" eventType="touchUpInside" id="as6-fu-0sT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-XU-kWU" userLabel="Title">
+                    <rect key="frame" x="85" y="34" width="150" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_add_white.png" width="48" height="48"/>
+        <image name="ic_arrow_back_white" width="48" height="48"/>
+        <image name="ic_delete_white" width="48" height="48"/>
+        <image name="ic_done_white" width="48" height="48"/>
+        <image name="ic_search_white" width="48" height="48"/>
+        <image name="top_line_bar.png" width="1" height="127"/>
+    </resources>
+</document>

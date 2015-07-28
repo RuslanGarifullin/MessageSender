@@ -8,6 +8,7 @@
 
 #import "ChangingViewController.h"
 #import "TABirthday.h"
+#import "TANavigationBar.h"
 
 @interface ChangingViewController ()
 @property (nonatomic, strong) TABirthday *birthday;
@@ -19,10 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *enableSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *messageLabel;
 @property (strong, nonatomic) UIAlertController *alertController;
-
-
-
-
+@property (strong, nonatomic) TANavigationBar *navBar;
 @end
 
 @implementation ChangingViewController
@@ -45,23 +43,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.titleTextField.text = self.birthday.title;
-    
-        if (self.birthday.date) {
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"HH:mm dd.MM.yyyy"];
-            //[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
-            _dateLabel.text = [formatter stringFromDate:self.birthday.date];
-        } else {
-            _dateLabel.text = @"установить";
-        }
+    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeBackDoneRemove andTitle:@"Редактор"];
+    [self.view addSubview:self.navBar.view];
+    self.titleTextField.text = self.birthday.title;
+    if (self.birthday.date) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm dd.MM.yyyy"];
+        //[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+        _dateLabel.text = [formatter stringFromDate:self.birthday.date];
+    } else {
+        _dateLabel.text = @"установить";
+    }
+    _peopleCounter.text = [NSString stringWithFormat:@"%d",self.birthday.subscribers.count];
+    [_enableSwitch setOn:self.birthday.enable animated:NO];
 
-    
-        _peopleCounter.text = [NSString stringWithFormat:@"%d",self.birthday.subscribers.count];
-        [_enableSwitch setOn:self.birthday.enable animated:NO];
-    
-        _messageLabel.titleLabel.text = self.birthday.message;
-    
+    _messageLabel.titleLabel.text = self.birthday.message;
 }
 
 - (IBAction)backButtonClick:(id)sender
