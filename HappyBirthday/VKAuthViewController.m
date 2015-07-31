@@ -9,9 +9,10 @@
 #import "VKAuthViewController.h"
 #import "ViewController.h"
 #import "TANavigationBar.h"
+#import "AppDelegate.h"
 
 
-@interface VKAuthViewController () <UIWebViewDelegate>
+@interface VKAuthViewController () <UIWebViewDelegate, TANavigationBarDelegate>
 
 @property (nonatomic, strong) TANavigationBar *navBar;
 
@@ -22,14 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
+    
+    //Удаление cookie
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [storage cookies]) {
         [storage deleteCookie:cookie];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
-    */
-    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeBackSearchAdd andTitle:@"Ваши сообщения"];
+    
+    
+    
+    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeDefault andTitle:@"Вконтакте"];
+    [self.navBar setDelegate:self];
     [self.view addSubview: self.navBar.view];
     
     self.vkAuthWebView.delegate = self;
@@ -58,6 +63,10 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
+    
+
+    
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -75,14 +84,11 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - TANavigationBarDelegate
+- (void) navigationBar:(TANavigationBar *)navBar backButtonClicked:(UIButton *)button
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+
 
 @end

@@ -11,7 +11,7 @@
 
 @interface ChangingViewController : UIViewController
 
-- (id) initWithBirthdaysArray:(NSMutableArray*)birthdays atIndex:(NSInteger)index;
+- (id) initWithIndex:(NSInteger)index;
 
 
 @end

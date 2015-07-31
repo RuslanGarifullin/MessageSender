@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "ChangingViewController.h"
 #import "WelcomeViewController.h"
-
+#import "TAApplicationStorage.h"
 
 @interface AppDelegate ()
 
@@ -18,26 +18,34 @@
 
 @implementation AppDelegate
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"initialize");
+    }
+    return self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /*UIWindow *window = [[UIWindow alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
-    [navController setNavigationBarHidden:YES];
-    window.rootViewController = navController;
-    window.frame = [[UIScreen mainScreen] bounds];
-    self.window = window;
-    [self.window makeKeyAndVisible];*/
-    
-    
-    //Modification 13:11 add Welcome view with Vk auth
+    self.storage = [[TAApplicationStorage alloc] init];
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[WelcomeViewController alloc] init]];
+    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[WelcomeViewController alloc] init]];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [navController setNavigationBarHidden:YES];
     window.rootViewController = navController;
     self.window = window;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (TAApplicationStorage*) storage {
+    if (_storage == nil) {
+        _storage = [[TAApplicationStorage alloc] init];
+    }
+    return _storage;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

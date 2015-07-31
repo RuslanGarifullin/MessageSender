@@ -11,8 +11,6 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *birthdayTableView;
-@property (strong, nonatomic) NSMutableArray *birthdaysArray;
-@property (strong, nonatomic) NSMutableArray *friendsArray;
 @property (weak, nonatomic) IBOutlet UIView *haveNothingNotificationView;
 
 @end

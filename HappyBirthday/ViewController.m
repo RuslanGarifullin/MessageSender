@@ -10,101 +10,107 @@
 #import "TABirthday.h"
 #import "ChangingViewController.h"
 #import "TANavigationBar.h"
+#import "TAApplicationStorage.h"
+#import "TATableViewCell.h"
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, TANavigationBarDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, TANavigationBarDelegate> {
+
+}
+
 @property (strong, nonatomic) TANavigationBar *navBar;
+
 @end
 
 @implementation ViewController
 
-- (instancetype)init
+
+- (void)viewDidLoad
 {
-    self = [super init];
-    if (self) {
-        self.birthdaysArray = [[NSMutableArray alloc] init];
-        [self.birthdaysArray addObject:[[TABirthday alloc]initWithTitle:@"some name 1"]];
-        [self.birthdaysArray addObject:[[TABirthday alloc]initWithTitle:@"some name 2"]];
-        [self.birthdaysArray addObject:[[TABirthday alloc]initWithTitle:@"some name 3"]];
-    }
-    return self;
-}
-
-
-- (IBAction)addNewBirthday:(id)sender
-{
-    ChangingViewController *changintVC = [[ChangingViewController alloc] initWithBirthdaysArray:self.birthdaysArray  atIndex:(NSInteger)self.birthdaysArray.count];
-    [self.navigationController pushViewController:changintVC animated:YES];
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
     self.birthdayTableView.dataSource = self;
     self.birthdayTableView.delegate = self;
-    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeBackSearchAdd andTitle:@"Ваши сообщения"];
+    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeSearchAdd andTitle:@"Ваши сообщения"];
+    [self.navBar setDelegate: self];
     [self.view addSubview: self.navBar.view];
     
+    UINib *nib = [UINib nibWithNibName:@"TATableViewCell" bundle:nil];
+    [self.birthdayTableView registerNib:nib forCellReuseIdentifier:@"TATableViewCell"];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.birthdayTableView reloadData];
 }
           
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.birthdaysArray.count == 0) {
+    TAApplicationStorage *storage = [TAApplicationStorage sharedLocator];
+    if ([[storage birthdaysArray] count] == 0) {
         [self.haveNothingNotificationView setHidden:NO];
         [self.birthdayTableView setHidden:YES];
     } else {
         [self.haveNothingNotificationView setHidden:YES];
         [self.birthdayTableView setHidden:NO];
     }
-    return self.birthdaysArray.count;
+    return [[storage birthdaysArray] count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"birthday";
-    UITableViewCell *cell = [self.birthdayTableView dequeueReusableCellWithIdentifier:identifier];
-    UISwitch *onOffSwitch = nil;
-    TABirthday *birthday = [self.birthdaysArray objectAtIndex:indexPath.row];
-    if (cell == nil) {
-        //cell customize
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",birthday.subscribers.count];
-        cell.backgroundColor = [UIColor colorWithRed:0.91f green:0.91f blue:0.91f alpha:1.f];
-        [cell.textLabel setTextColor:[UIColor colorWithRed:0.627f green:0.627f blue:0.627f alpha:1.f]];
-        
-        //switch customize
-        onOffSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
-        [onOffSwitch setCenter: CGPointMake(cell.frame.size.width - onOffSwitch.frame.size.width/2-10, cell.center.y)];
-        [onOffSwitch setOnTintColor:[UIColor colorWithRed:0.075f green:0.75f blue:0.86f alpha:1.f]];
-        [onOffSwitch setTag:100];
-        [onOffSwitch addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
-        
-        [cell.contentView addSubview:onOffSwitch];
+    static NSString *identifier = @"TATableViewCell";
+    TATableViewCell *cell = [self.birthdayTableView dequeueReusableCellWithIdentifier:identifier];
+    TABirthday *birthday = [[[TAApplicationStorage sharedLocator] birthdaysArray] objectAtIndex:indexPath.row];
+    
+    //TITLE
+    cell.titleLable.text = birthday.title;
+    
+    //ENABLE/DISABLE
+    [cell.enableSwitch setOn:birthday.enable];
+    
+    //DATE
+    if (birthday.date) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        //[formatter setDateFormat:@"HH:mm dd.MM.yyyy"];
+        [formatter setDateFormat:@"dd.MM.yyyy"];
+        cell.dateLabel.text = [formatter stringFromDate:birthday.date];
     } else {
-        onOffSwitch = (UISwitch*) [cell.contentView viewWithTag:100];
+        cell.dateLabel.text = @"не установлено";
     }
-    cell.textLabel.text = birthday.title;
-    [onOffSwitch setOn:birthday.enable];
+    
+    //PEOPLE COUNTER
+    cell.peopleCounterLabel.text = [NSString stringWithFormat:@"%d", birthday.subscribers.count];
+    
     return cell;
 }
 
-- (void) switchValueChanged:(UISwitch*)sender
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = (UITableViewCell*) [[sender superview] superview];
-    NSIndexPath *indexpath = [self.birthdayTableView indexPathForCell:cell];
-    TABirthday *birthday = [self.birthdaysArray objectAtIndex:indexpath.row];
-    [birthday setEnable:sender.isOn];
+    return 70;
 }
+
+
 
 #pragma mark - UITableViewDelegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.birthdayTableView deselectRowAtIndexPath:indexPath animated:YES];
-        ChangingViewController *changintVC = [[ChangingViewController alloc] initWithBirthdaysArray:self.birthdaysArray  atIndex:(NSInteger)indexPath.row];
+        ChangingViewController *changintVC = [[ChangingViewController alloc] initWithIndex: indexPath.row];
     [self.navigationController pushViewController:changintVC animated:YES];
 }
+
+#pragma mark - TANavigationBarDelegate
+- (void) navigationBar:(TANavigationBar *)navBar addButtonClicked:(UIButton *)button
+{
+    ChangingViewController *changintVC = [[ChangingViewController alloc] initWithIndex:(NSInteger)[[[TAApplicationStorage sharedLocator] birthdaysArray] count]];
+    [self.navigationController pushViewController:changintVC animated:YES];
+}
+
+/*- (void) navigationBar:(TANavigationBar *)navBar searchButtonClicked:(UIButton *)button
+{
+    
+}*/
+
 
 @end
