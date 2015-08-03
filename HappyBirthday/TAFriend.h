@@ -11,7 +11,10 @@
 @interface TAFriend : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *vkId;
+@property (nonatomic, assign) NSUInteger vkId;
 @property (nonatomic, strong) NSURL *imgUrl;
+@property (nonatomic, strong) NSDate *birthDate;
+
+- (id) initWithName:(NSString*)name vkId:(NSUInteger)vkId imgUrl:(NSURL*)url andBirthDate:(NSDate*)birthDate;
 
 @end

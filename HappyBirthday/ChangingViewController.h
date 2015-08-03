@@ -11,7 +11,4 @@
 
 @interface ChangingViewController : UIViewController
 
-- (id) initWithIndex:(NSInteger)index;
-
-
 @end

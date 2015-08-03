@@ -30,8 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.storage = [[TAApplicationStorage alloc] init];
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[WelcomeViewController alloc] init]];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[WelcomeViewController alloc] init]];
+    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [navController setNavigationBarHidden:YES];
     window.rootViewController = navController;
     self.window = window;

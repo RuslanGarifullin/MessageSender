@@ -8,20 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, TANavigationBarType) {
-    TANavigationBarTypeDefault,
-    TANavigationBarTypeBackDoneRemove,
-    TANavigationBarTypeSearchAdd,
-    TANavigationBarTypeBackSearchAdd,
-    TANavigationBarTypeNone
-};
-
 @protocol TANavigationBarDelegate;
 
+@interface TANavigationBar : UIView
 
-@interface TANavigationBar : UIViewController
-
-- (instancetype)initWithType:(TANavigationBarType)type andTitle:(NSString*)title;
 @property (nonatomic, weak) id <TANavigationBarDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -29,6 +19,8 @@ typedef NS_ENUM(NSInteger, TANavigationBarType) {
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *navBarLabel;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -41,5 +33,6 @@ typedef NS_ENUM(NSInteger, TANavigationBarType) {
 - (void) navigationBar:(TANavigationBar*)navBar addButtonClicked:(UIButton*)button;
 - (void) navigationBar:(TANavigationBar *)navBar doneButtonClicked:(UIButton *)button;
 - (void) navigationBar:(TANavigationBar *)navBar searchButtonClicked:(UIButton *)button;
+- (void) navigationBar:(TANavigationBar *)navBar cancelButtonClicked:(UIButton *)button;
 
 @end

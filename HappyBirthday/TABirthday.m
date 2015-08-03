@@ -7,6 +7,7 @@
 //
 
 #import "TABirthday.h"
+#import "TASubscriber.h"
 
 @implementation TABirthday
 
@@ -32,9 +33,73 @@
         _date = date;
         _subscribers = [subscribers copy];
         _enable = enable;
+        if (subscribers) {
+            _subscribers = [[NSMutableArray alloc] initWithArray:subscribers copyItems:YES];
+        } else {
+            _subscribers = [[NSMutableArray alloc] init];
+        }
     }
     return self;
 }
 
+- (BOOL) existSubscriberAtIndex:(NSUInteger)userId
+{
+    __block BOOL exist = NO;
+    [self.subscribers enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[TASubscriber class]])
+        {
+            if ([(TASubscriber*)obj userId] == userId) {
+                exist = YES;
+                *stop = YES;
+            }
+        }
+    }];
+    return exist;
+}
+
+- (void) addSubscriberAtIndex:(NSUInteger)userId
+{
+    __block NSInteger index = -1;
+    [self.subscribers enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[TASubscriber class]])
+        {
+            if ([(TASubscriber*)obj userId] == userId) {
+                index = idx;
+                *stop = YES;
+            }
+        }
+    }];
+    if (index == -1) {
+        [self.subscribers addObject:[[TASubscriber alloc] initWithUserId:userId]];
+    }
+}
+
+- (void) removeSubscriberAtIndex:(NSUInteger)userId
+{
+    __block NSInteger index = -1;
+    [self.subscribers enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[TASubscriber class]])
+        {
+            if ([(TASubscriber*)obj userId] == userId) {
+                index = idx;
+                *stop = YES;
+            }
+        }
+    }];
+    if (index > -1) {
+        [self.subscribers removeObjectAtIndex:index];
+    }
+}
+
+- (NSString*) stringDate
+{
+    if (self.date) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm dd.MM.yyyy"];
+        return [formatter stringFromDate:self.date];
+    } else {
+        return @"установить";
+    }
+}
 
 @end

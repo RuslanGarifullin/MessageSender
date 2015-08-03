@@ -8,37 +8,69 @@
             <connections>
                 <outlet property="birthdayTableView" destination="9Gl-B6-9yf" id="JNt-Oh-Q2L"/>
                 <outlet property="haveNothingNotificationView" destination="gJo-mg-3yR" id="k3S-ti-kca"/>
+                <outlet property="navBar" destination="thT-Ez-nuT" id="1n2-eH-wMY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="urb-6I-oS8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Gl-B6-9yf">
-                    <rect key="frame" x="0.0" y="46" width="320" height="433"/>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Gl-B6-9yf">
+                    <rect key="frame" x="0.0" y="46" width="375" height="621"/>
                     <color key="separatorColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
-                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-mg-3yR" userLabel="HaveNothing">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-mg-3yR" userLabel="HaveNothing">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.33699999999999997" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Здесь будут ваши сообщения." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-id-mlr">
-                            <rect key="frame" x="50" y="260" width="220" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.33699999999999997" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Здесь будут ваши сообщения." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-id-mlr">
+                            <rect key="frame" x="80" y="389" width="214.5" height="19"/>
                             <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" alpha="0.086999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_notifications" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-Wr-0jo">
-                            <rect key="frame" x="112" y="156" width="96" height="96"/>
+                        <imageView userInteractionEnabled="NO" alpha="0.086999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notifications" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-Wr-0jo">
+                            <rect key="frame" x="139" y="285" width="96" height="96"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="96" id="anj-aH-obD"/>
+                                <constraint firstAttribute="height" constant="96" id="qvs-g3-c9i"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="eB2-id-mlr" secondAttribute="centerX" id="1LV-Ij-Sud"/>
+                        <constraint firstItem="eB2-id-mlr" firstAttribute="top" secondItem="hvU-Wr-0jo" secondAttribute="bottom" constant="8" id="Wvi-HN-onK"/>
+                        <constraint firstAttribute="centerX" secondItem="hvU-Wr-0jo" secondAttribute="centerX" id="YBd-jJ-579"/>
+                        <constraint firstAttribute="centerY" secondItem="hvU-Wr-0jo" secondAttribute="centerY" id="Yvw-xi-nUB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thT-Ez-nuT" customClass="TANavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="IV8-0y-hEH"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <constraints>
+                <constraint firstItem="gJo-mg-3yR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0rP-cJ-fKc"/>
+                <constraint firstAttribute="trailing" secondItem="thT-Ez-nuT" secondAttribute="trailing" id="8lO-gA-t5t"/>
+                <constraint firstItem="thT-Ez-nuT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GC0-lc-Gju"/>
+                <constraint firstAttribute="bottom" secondItem="gJo-mg-3yR" secondAttribute="bottom" id="aHd-z6-QPN"/>
+                <constraint firstAttribute="trailing" secondItem="9Gl-B6-9yf" secondAttribute="trailing" id="dUN-ds-Akq"/>
+                <constraint firstAttribute="trailing" secondItem="gJo-mg-3yR" secondAttribute="trailing" id="j94-5h-pi3"/>
+                <constraint firstItem="thT-Ez-nuT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pFu-Na-YkV"/>
+                <constraint firstAttribute="bottom" secondItem="9Gl-B6-9yf" secondAttribute="bottom" id="qRn-S7-8Lj"/>
+                <constraint firstItem="gJo-mg-3yR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wFY-en-qmu"/>
+                <constraint firstItem="9Gl-B6-9yf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ykQ-ph-XRh"/>
+                <constraint firstItem="9Gl-B6-9yf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="z7X-dQ-xhn"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="186" y="425"/>
         </view>
     </objects>
     <resources>

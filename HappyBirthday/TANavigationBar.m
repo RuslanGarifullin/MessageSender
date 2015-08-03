@@ -10,53 +10,56 @@
 
 
 
-@interface TANavigationBar ()
-@property (nonatomic, assign) TANavigationBarType type;
-@property (nonatomic, strong) NSString *barTitle;
+@interface TANavigationBar () {
+    CGRect firstSearchFieldState;
+    CGRect firstCancelButtonState;
+}
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @end
 
 @implementation TANavigationBar
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    if (self.barTitle != nil) {
-        self.navBarLabel.text = self.barTitle;
-    }
-    self.view.frame = CGRectMake(0, 0, 320, 75);
-    switch (self.type) {
-        case TANavigationBarTypeDefault:
-            [self.backButton setHidden:NO];
-            break;
-        case TANavigationBarTypeBackDoneRemove:
-            [self.backButton setHidden:NO];
-            [self.doneButton setHidden:NO];
-            [self.deleteButton setHidden:NO];
-            break;
-        case TANavigationBarTypeSearchAdd:
-            [self.searchButton setHidden:NO];
-            [self.addButton setHidden:NO];
-            break;
-        case TANavigationBarTypeBackSearchAdd:
-            [self.backButton setHidden:NO];
-            [self.searchButton setHidden:NO];
-            [self.addButton setHidden:NO];
-            break;
-        case TANavigationBarTypeNone:
-            break;
-        default:
-            break;
-    }
-}
-
-- (instancetype)initWithType:(TANavigationBarType)type andTitle:(NSString*)title
+#pragma mark - constructors
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        _type = type;
-        _barTitle = title;
+        [self loadFromNib];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self loadFromNib];
+    }
+    return self;
+}
+
+- (instancetype) initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self loadFromNib];
+    }
+    return self;
+}
+
+- (void)loadFromNib
+{
+    [[NSBundle mainBundle] loadNibNamed:@"TANavigationBar" owner:self options:nil];
+    CGRect newFrame = CGRectZero;
+    newFrame.size = self.frame.size;
+    self.containerView.frame = newFrame;
+    firstSearchFieldState = self.searchTextField.frame;
+    firstCancelButtonState = self.cancelButton.frame;
+    [self layoutIfNeeded];
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self addSubview:self.containerView];
 }
 
 - (void) dealloc {
@@ -126,6 +129,47 @@
     } else {
         NSLog(@"from TANavigationBar delegate == nil");
     }
+    [self.searchButton setHidden:YES];
+    [self.backButton setHidden:YES];
+    [self.navBarLabel setHidden:YES];
+    [self.searchTextField setHidden:NO];
+    [self.cancelButton setHidden:NO];
+    [self.searchTextField setAlpha:0.f];
+    [self.searchTextField setText:@""];
+    [UIView animateWithDuration:0.3f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [self.searchTextField setFrame:CGRectMake(8, self.searchTextField.frame.origin.y, self.frame.size.width - self.cancelButton.frame.size.width - 12, self.searchTextField.frame.size.height)];
+        [self.searchTextField setAlpha:1.f];
+        [self.cancelButton setCenter:CGPointMake(self.frame.size.width-self.cancelButton.frame.size.width/2, self.cancelButton.center.y)];
+    } completion:nil];
+}
+- (IBAction)cancelButtonClicked:(id)sender
+{
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(navigationBar:cancelButtonClicked:)]) {
+            [self.delegate navigationBar:self cancelButtonClicked:sender];
+        } else {
+            NSLog(@"from TANavigationBar delegate doesn't have method's realization");
+        }
+    } else {
+        NSLog(@"from TANavigationBar delegate == nil");
+    }
+    [self.backButton setAlpha:0.f];
+    [self.searchButton setAlpha:0.f];
+    [self.navBarLabel setAlpha:0.f];
+    [self.searchButton setHidden:NO];
+    [self.backButton setHidden:NO];
+    [self.navBarLabel setHidden:NO];
+    [UIView animateWithDuration:.3f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [self.searchTextField setFrame:firstSearchFieldState];
+        [self.searchTextField setAlpha:0.f];
+        [self.cancelButton setFrame:firstCancelButtonState];
+        [self.searchButton setAlpha:1.f];
+        [self.backButton setAlpha:1.f];
+        [self.navBarLabel setAlpha:1.f];
+    } completion:^(BOOL finished){
+        [self.searchTextField setHidden:YES];
+        [self.cancelButton setHidden:YES];
+    }];
 }
 
 

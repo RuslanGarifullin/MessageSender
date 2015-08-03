@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeModelViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-hW-Qlt">
+                    <rect key="frame" x="0.0" y="75" width="600" height="162"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="ihS-Qo-qmA"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="460288302.73072302">
+                        <!--2015-08-03 09:51:42 +0000-->
+                    </date>
+                    <locale key="locale" localeIdentifier="ru"/>
+                </datePicker>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngq-tE-dwx">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGu-tP-683">
+                            <rect key="frame" x="8" y="37" width="72" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Отменить">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-XO-LGf">
+                            <rect key="frame" x="512" y="37" width="80" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Сохранить">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изменить дату" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oc-18-ClI">
+                            <rect key="frame" x="238" y="42" width="124" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="3yN-t0-rti"/>
+                        <constraint firstAttribute="trailing" secondItem="Uo1-XO-LGf" secondAttribute="trailing" constant="8" id="4wc-eU-Udl"/>
+                        <constraint firstItem="qGu-tP-683" firstAttribute="leading" secondItem="ngq-tE-dwx" secondAttribute="leading" constant="8" id="6RS-GL-VQ1"/>
+                        <constraint firstAttribute="centerY" secondItem="qGu-tP-683" secondAttribute="centerY" constant="-15" id="6uW-tQ-S9f"/>
+                        <constraint firstAttribute="centerY" secondItem="6Oc-18-ClI" secondAttribute="centerY" constant="-15" id="PCB-DW-RUf"/>
+                        <constraint firstAttribute="centerY" secondItem="Uo1-XO-LGf" secondAttribute="centerY" id="WRY-3v-D2h"/>
+                        <constraint firstAttribute="centerY" secondItem="Uo1-XO-LGf" secondAttribute="centerY" constant="-15" id="ZMM-B4-xLY"/>
+                        <constraint firstAttribute="centerX" secondItem="6Oc-18-ClI" secondAttribute="centerX" id="nAu-II-yj1"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="WRY-3v-D2h"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nel-gX-ahl" userLabel="line">
+                    <rect key="frame" x="0.0" y="74" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="s3C-8z-jLN"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-Dn-Wtj">
+                    <rect key="frame" x="0.0" y="278" width="600" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="z2t-36-j9F"/>
+                    </constraints>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TBV-KD-P4f">
+                    <rect key="frame" x="0.0" y="242" width="600" height="29"/>
+                    <segments>
+                        <segment title="Все"/>
+                        <segment title="Популярные"/>
+                        <segment title="Профессии"/>
+                        <segment title=""/>
+                        <segment title=""/>
+                    </segments>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nel-gX-ahl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cbs-vP-EBe"/>
+                <constraint firstItem="nel-gX-ahl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D02-rR-uNC"/>
+                <constraint firstItem="4ed-hW-Qlt" firstAttribute="top" secondItem="nel-gX-ahl" secondAttribute="bottom" id="E83-Uf-RtQ"/>
+                <constraint firstAttribute="trailing" secondItem="Dcw-Dn-Wtj" secondAttribute="trailing" id="LjA-oA-cLH"/>
+                <constraint firstItem="ngq-tE-dwx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OjK-Pm-tZU"/>
+                <constraint firstItem="4ed-hW-Qlt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QmF-9p-5pq"/>
+                <constraint firstItem="4ed-hW-Qlt" firstAttribute="top" secondItem="ngq-tE-dwx" secondAttribute="bottom" id="RgV-lt-XVN"/>
+                <constraint firstItem="Dcw-Dn-Wtj" firstAttribute="top" secondItem="4ed-hW-Qlt" secondAttribute="bottom" constant="2" id="Wev-K6-n6B"/>
+                <constraint firstItem="nel-gX-ahl" firstAttribute="top" secondItem="ngq-tE-dwx" secondAttribute="top" id="cJI-tu-wV1"/>
+                <constraint firstAttribute="trailing" secondItem="4ed-hW-Qlt" secondAttribute="trailing" id="ggB-De-uZf"/>
+                <constraint firstItem="ngq-tE-dwx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jcL-FQ-czB"/>
+                <constraint firstItem="nel-gX-ahl" firstAttribute="bottom" secondItem="ngq-tE-dwx" secondAttribute="bottom" id="nhj-Xq-Cmu"/>
+                <constraint firstItem="Dcw-Dn-Wtj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nwk-Mo-nii"/>
+                <constraint firstAttribute="trailing" secondItem="ngq-tE-dwx" secondAttribute="trailing" id="ttT-nM-iWb"/>
+                <constraint firstAttribute="trailing" secondItem="nel-gX-ahl" secondAttribute="trailing" id="wHV-1f-729"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Cbs-vP-EBe"/>
+                    <exclude reference="cJI-tu-wV1"/>
+                    <exclude reference="RgV-lt-XVN"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

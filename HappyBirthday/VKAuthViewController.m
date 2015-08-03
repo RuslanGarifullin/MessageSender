@@ -14,7 +14,7 @@
 
 @interface VKAuthViewController () <UIWebViewDelegate, TANavigationBarDelegate>
 
-@property (nonatomic, strong) TANavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet TANavigationBar *navBar;
 
 @end
 
@@ -22,20 +22,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    //Удаление cookie
+
+    /*/Удаление cookie
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [storage cookies]) {
         [storage deleteCookie:cookie];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
+    */
     
-    
-    
-    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeDefault andTitle:@"Вконтакте"];
+    [self.navBar.backButton setHidden:NO];
+    self.navBar.navBarLabel.text = @"ВКонтакте";
     [self.navBar setDelegate:self];
-    [self.view addSubview: self.navBar.view];
     
     self.vkAuthWebView.delegate = self;
     [self.vkAuthWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://oauth.vk.com/authorize?client_id=4877262&scope=friends,offline,messages&redirect_uri=oauth.vk.com/blank.html&display=touch&response_type=token"]]];
@@ -46,7 +44,6 @@
 {
     NSMutableDictionary *gotValues = [[NSMutableDictionary alloc] init];
     NSString *currentURL = webView.request.URL.absoluteString;
-    NSLog(@"%@", currentURL);
     NSRange textRange = [[currentURL lowercaseString] rangeOfString:[@"access_token" lowercaseString]];
     if (textRange.location != NSNotFound) {
         [webView setHidden: YES];
@@ -54,8 +51,9 @@
         [gotValues setObject:[data objectAtIndex:1] forKey:@"access_token"];
         [gotValues setObject:[data objectAtIndex:3] forKey:@"expires_in"];
         [gotValues setObject:[data objectAtIndex:5] forKey:@"user_id"];
-        ViewController *viewController = [[ViewController alloc] init];
-        [[self navigationController] pushViewController:viewController animated:YES];
+        [[TAApplicationStorage sharedLocator] setAccessToken:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"access_token"]]];
+        [[TAApplicationStorage sharedLocator] setUserVkId:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"user_id"]]];
+        [[self navigationController] pushViewController:[[ViewController alloc] init] animated:YES];
     } else {
         NSRange textRange = [[currentURL lowercaseString] rangeOfString:@"error"];
         if(textRange.location != NSNotFound) {
@@ -63,10 +61,6 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
-    
-
-    
-    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

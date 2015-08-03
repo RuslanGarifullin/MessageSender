@@ -6,22 +6,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VKAuthViewController">
             <connections>
+                <outlet property="navBar" destination="PCX-lb-Err" id="rRd-ol-5rp"/>
                 <outlet property="view" destination="thv-Md-52f" id="Jhm-do-2P5"/>
                 <outlet property="vkAuthWebView" destination="og2-Au-FaE" id="ziL-zv-AeF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="thv-Md-52f" userLabel="NavigationBar">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og2-Au-FaE">
-                    <rect key="frame" x="0.0" y="45" width="320" height="435"/>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og2-Au-FaE">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-lb-Err" customClass="TANavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="PvF-WK-8TV"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <constraints>
+                <constraint firstItem="og2-Au-FaE" firstAttribute="top" secondItem="thv-Md-52f" secondAttribute="top" id="9cn-NE-AlK"/>
+                <constraint firstItem="PCX-lb-Err" firstAttribute="top" secondItem="thv-Md-52f" secondAttribute="top" id="MNM-CX-6sU"/>
+                <constraint firstItem="og2-Au-FaE" firstAttribute="leading" secondItem="thv-Md-52f" secondAttribute="leading" id="RF3-pS-YVD"/>
+                <constraint firstAttribute="bottom" secondItem="og2-Au-FaE" secondAttribute="bottom" id="Xxs-qe-jAQ"/>
+                <constraint firstAttribute="trailing" secondItem="og2-Au-FaE" secondAttribute="trailing" id="YOW-9O-Tun"/>
+                <constraint firstItem="PCX-lb-Err" firstAttribute="leading" secondItem="thv-Md-52f" secondAttribute="leading" id="hY6-R8-j7R"/>
+                <constraint firstAttribute="trailing" secondItem="PCX-lb-Err" secondAttribute="trailing" id="mAm-4W-hdo"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
 </document>

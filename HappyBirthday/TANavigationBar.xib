@@ -6,79 +6,138 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TANavigationBar">
             <connections>
-                <outlet property="addButton" destination="BRU-Fv-gfF" id="FCV-48-ce0"/>
-                <outlet property="backButton" destination="gCf-4S-uig" id="JF2-VI-ovV"/>
-                <outlet property="deleteButton" destination="xlp-ka-Ajr" id="CuQ-rb-DxU"/>
-                <outlet property="doneButton" destination="bCv-3H-7uB" id="A7w-fl-Dbm"/>
-                <outlet property="navBarLabel" destination="rpW-XU-kWU" id="K4T-t0-sg1"/>
-                <outlet property="searchButton" destination="5x3-ql-UNe" id="SMx-po-GSw"/>
-                <outlet property="view" destination="Y5l-Kj-fl0" id="csh-DD-YBI"/>
+                <outlet property="addButton" destination="BRU-Fv-gfF" id="6xC-BQ-8DB"/>
+                <outlet property="backButton" destination="gCf-4S-uig" id="Ak0-JZ-V9j"/>
+                <outlet property="cancelButton" destination="7DP-eH-2k4" id="4JZ-Qe-FqB"/>
+                <outlet property="containerView" destination="Y5l-Kj-fl0" id="kO9-7W-1hH"/>
+                <outlet property="deleteButton" destination="xlp-ka-Ajr" id="OF2-PG-2bN"/>
+                <outlet property="doneButton" destination="bCv-3H-7uB" id="Ud8-yH-yQd"/>
+                <outlet property="navBarLabel" destination="rpW-XU-kWU" id="vKK-qf-qDq"/>
+                <outlet property="searchButton" destination="5x3-ql-UNe" id="W1b-bo-sLN"/>
+                <outlet property="searchTextField" destination="KUy-hi-Buk" id="1mt-rY-5lW"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Y5l-Kj-fl0" userLabel="NavigationBar">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <rect key="frame" x="0.0" y="0.0" width="346" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-bH-tlP">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-bH-tlP">
+                    <rect key="frame" x="0.0" y="0.0" width="346" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="NGT-O9-6HG"/>
+                    </constraints>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-3H-7uB" userLabel="DoneButton">
-                    <rect key="frame" x="285" y="33" width="24" height="24"/>
-                    <state key="normal" image="ic_done_white">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="doneButtonClicked:" destination="-1" eventType="touchUpInside" id="Ocr-Ry-ehZ"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-ka-Ajr" userLabel="DeleteButton">
-                    <rect key="frame" x="243" y="34" width="24" height="24"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-ka-Ajr" userLabel="DeleteButton">
+                    <rect key="frame" x="272" y="33" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="STK-QT-cuD"/>
+                        <constraint firstAttribute="width" constant="24" id="j1j-W1-RiN"/>
+                    </constraints>
                     <state key="normal" image="ic_delete_white">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="deleteButtonClicked:" destination="-1" eventType="touchUpInside" id="EnV-zH-lG5"/>
+                        <action selector="deleteButtonClicked:" destination="-1" eventType="touchUpInside" id="tKW-h1-QyI"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Fv-gfF" userLabel="AddButton">
-                    <rect key="frame" x="285" y="33" width="24" height="24"/>
-                    <state key="normal" image="ic_add_white.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="addButtonClicked:" destination="-1" eventType="touchUpInside" id="Bef-kq-385"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ql-UNe" userLabel="SearchButton">
-                    <rect key="frame" x="243" y="34" width="24" height="24"/>
-                    <state key="normal" image="ic_search_white">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="bir-r5-j3w"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-4S-uig" userLabel="BackButton">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-4S-uig" userLabel="BackButton">
                     <rect key="frame" x="8" y="33" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="Eby-lK-vrd"/>
+                        <constraint firstAttribute="height" constant="24" id="wNu-0g-FHa"/>
+                    </constraints>
                     <state key="normal" image="ic_arrow_back_white">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="backButtonClicked:" destination="-1" eventType="touchUpInside" id="as6-fu-0sT"/>
+                        <action selector="backButtonClicked:" destination="-1" eventType="touchUpInside" id="phL-78-2Kn"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-XU-kWU" userLabel="Title">
-                    <rect key="frame" x="85" y="34" width="150" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-w4-Wxc">
+                    <rect key="frame" x="314" y="33" width="24" height="24"/>
+                    <subviews>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-3H-7uB" userLabel="DoneButton">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <state key="normal" image="ic_done_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="-1" eventType="touchUpInside" id="Qwv-pl-yY9"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Fv-gfF" userLabel="AddButton">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <state key="normal" image="ic_add_white.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addButtonClicked:" destination="-1" eventType="touchUpInside" id="dp9-Z5-ouu"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ql-UNe" userLabel="SearchButton">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <state key="normal" image="ic_search_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="1HF-7b-xZR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="LBf-aE-6Nc"/>
+                        <constraint firstAttribute="width" constant="24" id="Yi2-T4-aQD"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="bw3-XT-31V"/>
+                        <constraint firstAttribute="height" constant="24" id="n2w-jN-Mc6"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="LBf-aE-6Nc"/>
+                            <exclude reference="bw3-XT-31V"/>
+                        </mask>
+                    </variation>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-XU-kWU" userLabel="Title">
+                    <rect key="frame" x="132" y="34" width="82.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск друга" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUy-hi-Buk" userLabel="SearhingField">
+                    <rect key="frame" x="314" y="30" width="26" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DP-eH-2k4">
+                    <rect key="frame" x="350" y="33" width="72" height="25"/>
+                    <state key="normal" title="Отменить">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonClicked:" destination="-1" eventType="touchUpInside" id="szv-tN-QbG"/>
+                    </connections>
+                </button>
             </subviews>
+            <constraints>
+                <constraint firstItem="gCf-4S-uig" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="4Bt-LX-Up3"/>
+                <constraint firstItem="TUo-bH-tlP" firstAttribute="leading" secondItem="Y5l-Kj-fl0" secondAttribute="leading" id="536-aH-1lc"/>
+                <constraint firstItem="rpW-XU-kWU" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="34" id="91s-Cb-Gjb"/>
+                <constraint firstAttribute="trailing" secondItem="TUo-bH-tlP" secondAttribute="trailing" id="C7y-F4-403"/>
+                <constraint firstAttribute="trailing" secondItem="xlp-ka-Ajr" secondAttribute="trailing" constant="50" id="Fvh-aj-efp"/>
+                <constraint firstItem="xlp-ka-Ajr" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="dbV-O1-KXn"/>
+                <constraint firstAttribute="trailing" secondItem="vf3-w4-Wxc" secondAttribute="trailing" constant="8" id="gfy-MA-OPt"/>
+                <constraint firstAttribute="centerX" secondItem="rpW-XU-kWU" secondAttribute="centerX" id="l6Y-Tr-9ap"/>
+                <constraint firstItem="gCf-4S-uig" firstAttribute="leading" secondItem="Y5l-Kj-fl0" secondAttribute="leading" constant="8" id="lcx-lm-Fh1"/>
+                <constraint firstItem="vf3-w4-Wxc" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="oc8-py-qcb"/>
+                <constraint firstItem="TUo-bH-tlP" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" id="qCO-Ud-wGr"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="210" y="146"/>
         </view>
     </objects>
     <resources>

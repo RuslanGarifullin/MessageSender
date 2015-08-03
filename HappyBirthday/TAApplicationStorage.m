@@ -8,6 +8,7 @@
 
 #import "TAApplicationStorage.h"
 #import "TABirthday.h"
+#import "TAFriend.h"
 #import "AppDelegate.h"
 
 @interface TAApplicationStorage ()
@@ -53,12 +54,54 @@
         [dateComp setYear:2015];
         [dateComp setMonth:12];
         [self.birthdaysArray addObject:[[TABirthday alloc] initWithTitle:@"Новый год" message:@"(имя), пусть новый год принесёт тебе массу впечатлейний и подарков! С Новым Годом)" date:[[NSCalendar currentCalendar] dateFromComponents:dateComp] andSubscribers:nil andEnable:YES]];
-        
-        
-        
         self.friendsArray = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void) createNewBirthdayAndStartChanging
+{
+    self.changingBirthday = [[TABirthday alloc] initWithTitle:@"" message:@"" date:nil andSubscribers:nil andEnable:NO];
+    self.changingIndex = self.birthdaysArray.count;
+}
+
+- (void) startChangingBirthdayAtIndex:(NSUInteger)index
+{
+    self.changingIndex = index;
+    self.changingBirthday = [self.birthdaysArray objectAtIndex:index];
+}
+
+- (void) accessChanging
+{
+    if (self.changingBirthday) {
+        if (self.changingIndex < self.birthdaysArray.count) {
+            [self.birthdaysArray replaceObjectAtIndex:self.changingIndex withObject:self.changingBirthday];
+            self.changingBirthday = nil;
+        } else {
+            [self.birthdaysArray addObject:self.changingBirthday];
+            self.changingBirthday = nil;
+        }
+    }
+}
+
+- (TAFriend*) friendAtId:(NSUInteger)userId
+{
+    __block TAFriend *friend = nil;
+    [self.friendsArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([(TAFriend*)obj vkId] == userId) {
+            friend = obj;
+            *stop = YES;
+        }
+    }];
+    return friend;
+}
+
+- (void) removeCurrentBirthday
+{
+    if (self.changingIndex < self.birthdaysArray.count) {
+        [self.birthdaysArray removeObjectAtIndex:self.changingIndex];
+    }
+    self.changingBirthday = nil;
 }
 
 @end

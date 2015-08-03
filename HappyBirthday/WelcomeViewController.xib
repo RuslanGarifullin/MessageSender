@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController">
@@ -11,22 +12,46 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEn-nk-8kV">
-                    <rect key="frame" x="20" y="410" width="135" height="46"/>
-                    <state key="normal" backgroundImage="help_button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted" backgroundImage="help_button_clicked"/>
-                </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCb-5R-tOB" userLabel="line">
-                    <rect key="frame" x="20" y="390" width="280" height="0.5"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQB-b9-G8R">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Sender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNO-f4-jRC">
+                            <rect key="frame" x="231" y="245" width="138" height="23"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="uKy-Qe-eeG">
+                            <rect key="frame" x="254.5" y="194" width="90" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="MeK-ag-5IQ"/>
+                                <constraint firstAttribute="height" constant="44" id="tJA-mm-QN9"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="sNO-f4-jRC" secondAttribute="centerX" id="Flj-rW-fhS"/>
+                        <constraint firstAttribute="height" constant="66" id="OrB-cM-6R4"/>
+                        <constraint firstAttribute="centerX" secondItem="uKy-Qe-eeG" secondAttribute="centerX" id="VHm-XV-piR"/>
+                        <constraint firstItem="sNO-f4-jRC" firstAttribute="top" secondItem="uKy-Qe-eeG" secondAttribute="bottom" constant="7" id="gRe-nR-cVZ"/>
+                        <constraint firstAttribute="centerY" secondItem="uKy-Qe-eeG" secondAttribute="centerY" id="kas-mz-pXZ"/>
+                        <constraint firstAttribute="width" constant="142" id="y5S-Bk-YGl"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="OrB-cM-6R4"/>
+                            <exclude reference="y5S-Bk-YGl"/>
+                        </mask>
+                    </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wd-i2-qUd">
-                    <rect key="frame" x="20" y="281" width="280" height="48"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wd-i2-qUd">
+                    <rect key="frame" x="40" y="432" width="520" height="89"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6Wd-i2-qUd" secondAttribute="height" multiplier="35:6" id="ADw-xz-EpC"/>
+                    </constraints>
                     <state key="normal" backgroundImage="vk_enter_button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -35,32 +60,29 @@
                         <action selector="vkEnterButtonClick:" destination="-1" eventType="touchUpInside" id="lac-Dk-hS0"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="uKy-Qe-eeG">
-                    <rect key="frame" x="107" y="116" width="90" height="44"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-qY-Drb">
-                    <rect key="frame" x="165" y="410" width="135" height="46"/>
-                    <state key="normal" backgroundImage="exit_button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted" backgroundImage="exit_button_clicked"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message Sender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNO-f4-jRC">
-                    <rect key="frame" x="89" y="168" width="142" height="21"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="20"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.086274509799999996" green="0.69019607839999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <constraints>
+                <constraint firstItem="UQB-b9-G8R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7gr-RX-zCC"/>
+                <constraint firstAttribute="trailing" secondItem="6Wd-i2-qUd" secondAttribute="trailing" constant="40" id="8Qj-hv-uFc"/>
+                <constraint firstItem="6Wd-i2-qUd" firstAttribute="top" secondItem="UQB-b9-G8R" secondAttribute="bottom" id="8rZ-SB-Qqr"/>
+                <constraint firstAttribute="centerX" secondItem="UQB-b9-G8R" secondAttribute="centerX" id="Bxf-7Z-mx7"/>
+                <constraint firstAttribute="trailing" secondItem="UQB-b9-G8R" secondAttribute="trailing" id="H2m-kF-Bfi"/>
+                <constraint firstItem="UQB-b9-G8R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QGA-OR-ik2"/>
+                <constraint firstItem="6Wd-i2-qUd" firstAttribute="top" secondItem="UQB-b9-G8R" secondAttribute="bottom" id="YWV-uQ-ErK"/>
+                <constraint firstAttribute="bottom" secondItem="6Wd-i2-qUd" secondAttribute="bottom" constant="79" id="chy-CJ-iH0"/>
+                <constraint firstItem="6Wd-i2-qUd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="cp0-Fk-UF4"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Bxf-7Z-mx7"/>
+                    <exclude reference="YWV-uQ-ErK"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="229" y="310"/>
         </view>
     </objects>
     <resources>
-        <image name="exit_button" width="270" height="92"/>
-        <image name="exit_button_clicked" width="270" height="92"/>
-        <image name="help_button" width="270" height="92"/>
-        <image name="help_button_clicked" width="270" height="92"/>
         <image name="logo_white" width="180" height="88"/>
         <image name="vk_enter_button" width="560" height="96"/>
         <image name="vk_enter_button_clicked" width="560" height="96"/>

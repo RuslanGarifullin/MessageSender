@@ -10,4 +10,16 @@
 
 @implementation TAFriend
 
+- (id) initWithName:(NSString*)name vkId:(NSUInteger)vkId imgUrl:(NSURL*)url andBirthDate:(NSDate*)birthDate
+{
+    self = [super init];
+    if (self) {
+        _name = name;
+        _vkId = vkId;
+        _imgUrl = url;
+        _birthDate = birthDate;
+    }
+    return self;
+}
+
 @end

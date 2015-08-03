@@ -19,5 +19,9 @@
 
 - (id) initWithTitle:(NSString*)title message:(NSString*)message date:(NSDate*)date andSubscribers:(NSMutableArray*)subscribers andEnable:(BOOL)enable;
 - (id) initWithTitle:(NSString*)title;
+- (NSString*) stringDate;
+- (BOOL) existSubscriberAtIndex:(NSUInteger)userId;
+- (void) addSubscriberAtIndex:(NSUInteger)userId;
+- (void) removeSubscriberAtIndex:(NSUInteger)userId;
 
 @end

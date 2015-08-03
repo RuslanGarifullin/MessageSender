@@ -14,11 +14,9 @@
 #import "TATableViewCell.h"
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, TANavigationBarDelegate> {
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, TANavigationBarDelegate>
 
-}
-
-@property (strong, nonatomic) TANavigationBar *navBar;
+@property (strong, nonatomic) IBOutlet TANavigationBar *navBar;
 
 @end
 
@@ -30,9 +28,10 @@
     [super viewDidLoad];
     self.birthdayTableView.dataSource = self;
     self.birthdayTableView.delegate = self;
-    self.navBar = [[TANavigationBar alloc] initWithType:TANavigationBarTypeSearchAdd andTitle:@"Ваши сообщения"];
-    [self.navBar setDelegate: self];
-    [self.view addSubview: self.navBar.view];
+    
+    [self.navBar.addButton setHidden:NO];
+    self.navBar.navBarLabel.text = @"Сообщения";
+    [self.navBar setDelegate:self];
     
     UINib *nib = [UINib nibWithNibName:@"TATableViewCell" bundle:nil];
     [self.birthdayTableView registerNib:nib forCellReuseIdentifier:@"TATableViewCell"];
@@ -96,21 +95,17 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.birthdayTableView deselectRowAtIndexPath:indexPath animated:YES];
-        ChangingViewController *changintVC = [[ChangingViewController alloc] initWithIndex: indexPath.row];
+    [[TAApplicationStorage sharedLocator] startChangingBirthdayAtIndex:indexPath.row];
+    ChangingViewController *changintVC = [[ChangingViewController alloc] init];
     [self.navigationController pushViewController:changintVC animated:YES];
 }
 
 #pragma mark - TANavigationBarDelegate
 - (void) navigationBar:(TANavigationBar *)navBar addButtonClicked:(UIButton *)button
 {
-    ChangingViewController *changintVC = [[ChangingViewController alloc] initWithIndex:(NSInteger)[[[TAApplicationStorage sharedLocator] birthdaysArray] count]];
+    [[TAApplicationStorage sharedLocator] createNewBirthdayAndStartChanging];
+    ChangingViewController *changintVC = [[ChangingViewController alloc] init];
     [self.navigationController pushViewController:changintVC animated:YES];
 }
-
-/*- (void) navigationBar:(TANavigationBar *)navBar searchButtonClicked:(UIButton *)button
-{
-    
-}*/
-
 
 @end
