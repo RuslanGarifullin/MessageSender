@@ -32,9 +32,10 @@
     [super viewDidLoad];
     NSInteger subscribersCount = [[[[TAApplicationStorage sharedLocator] changingBirthday] subscribers]count];
     
+    
     [self.navBar.backButton setHidden:NO];
     [self.navBar.searchButton setHidden:NO];
-    self.navBar.navBarLabel.text = [NSString stringWithFormat:@"Добавлено %ld",subscribersCount];
+    self.navBar.navBarLabel.text = [NSString stringWithFormat:@"Добавлено %@",@(subscribersCount).stringValue];
     [self.navBar setDelegate:self];
     [self.navBar.searchTextField setDelegate:self];
 
@@ -65,9 +66,10 @@
 
 - (void)initFriends
 {
+    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.vk.com/method/friends.get?lang=ru&user_id=%@&fields=bdate,photo_100",[[TAApplicationStorage sharedLocator] userVkId]]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0];
+    
     NSURLSession *jsonSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    NSURLSessionDataTask *dataTask = [jsonSession dataTaskWithURL:
-       [NSURL URLWithString:[NSString stringWithFormat:@"https://api.vk.com/method/friends.get?lang=ru&user_id=%@&fields=bdate,photo_100",[[TAApplicationStorage sharedLocator] userVkId]]] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    NSURLSessionDataTask *dataTask = [jsonSession dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
     {
         if(error) {
             NSLog(@"%@", error);

@@ -52,9 +52,6 @@
 - (void)loadFromNib
 {
     [[NSBundle mainBundle] loadNibNamed:@"TANavigationBar" owner:self options:nil];
-    CGRect newFrame = CGRectZero;
-    newFrame.size = self.frame.size;
-    self.containerView.frame = newFrame;
     firstSearchFieldState = self.searchTextField.frame;
     firstCancelButtonState = self.cancelButton.frame;
     [self layoutIfNeeded];
