@@ -28,13 +28,10 @@
         _name = name;
         _categoryIndex = categoryIndex;
         //1.1;1.4;9.12;9.11;1.4;10.10;11.12;31.12
-        NSDate *date = [[NSDate alloc] init];
-        NSArray *dateSplited = [dateString componentsSeparatedByString:@"."];
-        if ([dateSplited count] == 2) {
-            
-        } else {
-            return nil;
-        }
+
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"d.m"];
+        _date = [dateFormatter dateFromString:dateString];
     }
     return self;
 }

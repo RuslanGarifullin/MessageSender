@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6FCC31A2CAFB882E89704747F16D1952</key>
+		<key>7CF857C3F7EEFDF0F7822A2733D7FAFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E938439480846264CE8E3ACF8FA3DC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

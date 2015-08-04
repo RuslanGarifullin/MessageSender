@@ -19,17 +19,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Y5l-Kj-fl0" userLabel="NavigationBar">
-            <rect key="frame" x="0.0" y="0.0" width="346" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="408" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_line_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-bH-tlP">
-                    <rect key="frame" x="0.0" y="0.0" width="346" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="408" height="75"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="NGT-O9-6HG"/>
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-ka-Ajr" userLabel="DeleteButton">
-                    <rect key="frame" x="272" y="33" width="24" height="24"/>
+                    <rect key="frame" x="334" y="33" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="STK-QT-cuD"/>
                         <constraint firstAttribute="width" constant="24" id="j1j-W1-RiN"/>
@@ -55,10 +55,14 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-w4-Wxc">
-                    <rect key="frame" x="314" y="33" width="24" height="24"/>
+                    <rect key="frame" x="376" y="33" width="24" height="24"/>
                     <subviews>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-3H-7uB" userLabel="DoneButton">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-3H-7uB" userLabel="DoneButton">
                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="oo0-Ra-V5F"/>
+                                <constraint firstAttribute="height" constant="24" id="tgF-yt-99b"/>
+                            </constraints>
                             <state key="normal" image="ic_done_white">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -66,8 +70,12 @@
                                 <action selector="doneButtonClicked:" destination="-1" eventType="touchUpInside" id="Qwv-pl-yY9"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Fv-gfF" userLabel="AddButton">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Fv-gfF" userLabel="AddButton">
                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="42F-CA-cmM"/>
+                                <constraint firstAttribute="height" constant="24" id="Ir6-CS-Tiw"/>
+                            </constraints>
                             <state key="normal" image="ic_add_white.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -75,8 +83,12 @@
                                 <action selector="addButtonClicked:" destination="-1" eventType="touchUpInside" id="dp9-Z5-ouu"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ql-UNe" userLabel="SearchButton">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ql-UNe" userLabel="SearchButton">
                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="5Oj-3q-wa7"/>
+                                <constraint firstAttribute="height" constant="24" id="XcP-Fz-veQ"/>
+                            </constraints>
                             <state key="normal" image="ic_search_white">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -86,10 +98,16 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="centerY" secondItem="bCv-3H-7uB" secondAttribute="centerY" id="7Cs-Zw-Du6"/>
+                        <constraint firstAttribute="centerY" secondItem="BRU-Fv-gfF" secondAttribute="centerY" id="ECQ-d9-2vL"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="LBf-aE-6Nc"/>
+                        <constraint firstAttribute="centerX" secondItem="5x3-ql-UNe" secondAttribute="centerX" id="MmM-Jc-ZzV"/>
+                        <constraint firstAttribute="centerX" secondItem="bCv-3H-7uB" secondAttribute="centerX" id="Trg-TY-kW8"/>
                         <constraint firstAttribute="width" constant="24" id="Yi2-T4-aQD"/>
+                        <constraint firstAttribute="centerY" secondItem="5x3-ql-UNe" secondAttribute="centerY" id="bDy-yE-56V"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="bw3-XT-31V"/>
                         <constraint firstAttribute="height" constant="24" id="n2w-jN-Mc6"/>
+                        <constraint firstAttribute="centerX" secondItem="BRU-Fv-gfF" secondAttribute="centerX" id="xRI-Lc-WKk"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -99,18 +117,13 @@
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-XU-kWU" userLabel="Title">
-                    <rect key="frame" x="132" y="34" width="82.5" height="20.5"/>
+                    <rect key="frame" x="163" y="34" width="82.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск друга" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUy-hi-Buk" userLabel="SearhingField">
-                    <rect key="frame" x="314" y="30" width="26" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DP-eH-2k4">
-                    <rect key="frame" x="350" y="33" width="72" height="25"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DP-eH-2k4">
+                    <rect key="frame" x="408" y="27" width="70" height="30"/>
                     <state key="normal" title="Отменить">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,17 +132,27 @@
                         <action selector="cancelButtonClicked:" destination="-1" eventType="touchUpInside" id="szv-tN-QbG"/>
                     </connections>
                 </button>
+                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск друга" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUy-hi-Buk" userLabel="SearhingField">
+                    <rect key="frame" x="317" y="27" width="14" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="gCf-4S-uig" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="4Bt-LX-Up3"/>
                 <constraint firstItem="TUo-bH-tlP" firstAttribute="leading" secondItem="Y5l-Kj-fl0" secondAttribute="leading" id="536-aH-1lc"/>
                 <constraint firstItem="rpW-XU-kWU" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="34" id="91s-Cb-Gjb"/>
+                <constraint firstAttribute="bottom" secondItem="7DP-eH-2k4" secondAttribute="bottom" constant="18" id="A2i-Zt-eOS"/>
                 <constraint firstAttribute="trailing" secondItem="TUo-bH-tlP" secondAttribute="trailing" id="C7y-F4-403"/>
                 <constraint firstAttribute="trailing" secondItem="xlp-ka-Ajr" secondAttribute="trailing" constant="50" id="Fvh-aj-efp"/>
+                <constraint firstItem="xlp-ka-Ajr" firstAttribute="leading" secondItem="KUy-hi-Buk" secondAttribute="trailing" constant="3" id="Kzv-gk-Uxt"/>
+                <constraint firstAttribute="bottom" secondItem="KUy-hi-Buk" secondAttribute="bottom" constant="18" id="P5b-1G-C3Y"/>
+                <constraint firstItem="7DP-eH-2k4" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="27" id="bsv-On-LV3"/>
                 <constraint firstItem="xlp-ka-Ajr" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="dbV-O1-KXn"/>
                 <constraint firstAttribute="trailing" secondItem="vf3-w4-Wxc" secondAttribute="trailing" constant="8" id="gfy-MA-OPt"/>
                 <constraint firstAttribute="centerX" secondItem="rpW-XU-kWU" secondAttribute="centerX" id="l6Y-Tr-9ap"/>
                 <constraint firstItem="gCf-4S-uig" firstAttribute="leading" secondItem="Y5l-Kj-fl0" secondAttribute="leading" constant="8" id="lcx-lm-Fh1"/>
+                <constraint firstItem="7DP-eH-2k4" firstAttribute="leading" secondItem="vf3-w4-Wxc" secondAttribute="trailing" constant="8" id="mPR-na-nSl"/>
                 <constraint firstItem="vf3-w4-Wxc" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" constant="33" id="oc8-py-qcb"/>
                 <constraint firstItem="TUo-bH-tlP" firstAttribute="top" secondItem="Y5l-Kj-fl0" secondAttribute="top" id="qCO-Ud-wGr"/>
             </constraints>
@@ -137,7 +160,12 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="210" y="146"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="A2i-Zt-eOS"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="241" y="143.5"/>
         </view>
     </objects>
     <resources>

@@ -7,6 +7,7 @@
 //
 
 #import "TANavigationBar.h"
+#import "PureLayout.h"
 
 
 
@@ -54,9 +55,15 @@
     [[NSBundle mainBundle] loadNibNamed:@"TANavigationBar" owner:self options:nil];
     firstSearchFieldState = self.searchTextField.frame;
     firstCancelButtonState = self.cancelButton.frame;
-    [self layoutIfNeeded];
+    
     [self setBackgroundColor:[UIColor clearColor]];
     [self addSubview:self.containerView];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
 }
 
 - (void) dealloc {

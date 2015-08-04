@@ -72,37 +72,47 @@
                         <constraint firstAttribute="height" constant="1" id="s3C-8z-jLN"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-Dn-Wtj">
-                    <rect key="frame" x="0.0" y="278" width="600" height="200"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TBV-KD-P4f">
+                    <rect key="frame" x="0.0" y="237" width="600" height="29"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="z2t-36-j9F"/>
+                        <constraint firstAttribute="height" constant="28" id="EG3-da-mcQ"/>
                     </constraints>
-                </tableView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TBV-KD-P4f">
-                    <rect key="frame" x="0.0" y="242" width="600" height="29"/>
                     <segments>
-                        <segment title="Все"/>
-                        <segment title="Популярные"/>
-                        <segment title="Профессии"/>
                         <segment title=""/>
                         <segment title=""/>
                     </segments>
                 </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-Dn-Wtj">
+                    <rect key="frame" x="0.0" y="265" width="600" height="335"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="z2t-36-j9F"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="z2t-36-j9F"/>
+                        </mask>
+                    </variation>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nel-gX-ahl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cbs-vP-EBe"/>
                 <constraint firstItem="nel-gX-ahl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D02-rR-uNC"/>
                 <constraint firstItem="4ed-hW-Qlt" firstAttribute="top" secondItem="nel-gX-ahl" secondAttribute="bottom" id="E83-Uf-RtQ"/>
+                <constraint firstItem="TBV-KD-P4f" firstAttribute="top" secondItem="4ed-hW-Qlt" secondAttribute="bottom" id="KB6-fB-Ya2"/>
                 <constraint firstAttribute="trailing" secondItem="Dcw-Dn-Wtj" secondAttribute="trailing" id="LjA-oA-cLH"/>
                 <constraint firstItem="ngq-tE-dwx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OjK-Pm-tZU"/>
                 <constraint firstItem="4ed-hW-Qlt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QmF-9p-5pq"/>
                 <constraint firstItem="4ed-hW-Qlt" firstAttribute="top" secondItem="ngq-tE-dwx" secondAttribute="bottom" id="RgV-lt-XVN"/>
                 <constraint firstItem="Dcw-Dn-Wtj" firstAttribute="top" secondItem="4ed-hW-Qlt" secondAttribute="bottom" constant="2" id="Wev-K6-n6B"/>
                 <constraint firstItem="nel-gX-ahl" firstAttribute="top" secondItem="ngq-tE-dwx" secondAttribute="top" id="cJI-tu-wV1"/>
+                <constraint firstAttribute="bottom" secondItem="Dcw-Dn-Wtj" secondAttribute="bottom" id="cs3-bq-QG5"/>
                 <constraint firstAttribute="trailing" secondItem="4ed-hW-Qlt" secondAttribute="trailing" id="ggB-De-uZf"/>
+                <constraint firstAttribute="trailing" secondItem="TBV-KD-P4f" secondAttribute="trailing" id="iot-Mp-77f"/>
                 <constraint firstItem="ngq-tE-dwx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jcL-FQ-czB"/>
+                <constraint firstItem="Dcw-Dn-Wtj" firstAttribute="top" secondItem="TBV-KD-P4f" secondAttribute="bottom" id="loh-BU-foJ"/>
+                <constraint firstItem="TBV-KD-P4f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ngU-RO-gEB"/>
                 <constraint firstItem="nel-gX-ahl" firstAttribute="bottom" secondItem="ngq-tE-dwx" secondAttribute="bottom" id="nhj-Xq-Cmu"/>
                 <constraint firstItem="Dcw-Dn-Wtj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nwk-Mo-nii"/>
                 <constraint firstAttribute="trailing" secondItem="ngq-tE-dwx" secondAttribute="trailing" id="ttT-nM-iWb"/>
@@ -113,6 +123,7 @@
                     <exclude reference="Cbs-vP-EBe"/>
                     <exclude reference="cJI-tu-wV1"/>
                     <exclude reference="RgV-lt-XVN"/>
+                    <exclude reference="Wev-K6-n6B"/>
                 </mask>
             </variation>
         </view>
