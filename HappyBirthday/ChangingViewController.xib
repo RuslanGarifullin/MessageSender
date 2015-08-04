@@ -13,16 +13,16 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="thE-BG-esE">
-                    <rect key="frame" x="0.0" y="54" width="375" height="613"/>
+                    <rect key="frame" x="0.0" y="54" width="600" height="546"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="43" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVV-ns-iXS" customClass="TANavigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="baQ-z1-g6E"/>
@@ -39,7 +39,6 @@
                 <constraint firstAttribute="trailing" secondItem="fVV-ns-iXS" secondAttribute="trailing" id="dEH-Af-aft"/>
                 <constraint firstItem="thE-BG-esE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qq8-WE-99T"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
 </document>

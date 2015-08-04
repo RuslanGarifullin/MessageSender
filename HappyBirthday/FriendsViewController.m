@@ -9,7 +9,8 @@
 #import "FriendsViewController.h"
 #import "TANavigationBar.h"
 #import "TAFriendVKCell.h"
-#import "TAApplicationStorage.h"
+#import "TAServiceLocator.h"
+#import "TAStorageService.h"
 #import "TABirthday.h"
 #import "TAFriend.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -30,8 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSInteger subscribersCount = [[[[TAApplicationStorage sharedLocator] changingBirthday] subscribers]count];
-    
+    NSInteger subscribersCount = [[[[self storageService] changingBirthday] subscribers]count];
     
     [self.navBar.backButton setHidden:NO];
     [self.navBar.searchButton setHidden:NO];
@@ -44,7 +44,7 @@
     [self.friendsTableView setDataSource:self];
     [self.friendsTableView setDelegate:self];
     
-    if ([[[TAApplicationStorage sharedLocator] friendsArray] count] == 0) {
+    if ([[[self storageService] friendsArray] count] == 0) {
         self.loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         self.loadingView.center = self.view.center;
         [self.loadingView startAnimating];
@@ -64,9 +64,14 @@
     NSLog(@"friends download is done");
 }
 
+- (TAStorageService*) storageService
+{
+    return [[TAServiceLocator sharedServiceLocator] mainStorageService];
+}
+
 - (void)initFriends
 {
-    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.vk.com/method/friends.get?lang=ru&user_id=%@&fields=bdate,photo_100",[[TAApplicationStorage sharedLocator] userVkId]]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0];
+    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.vk.com/method/friends.get?lang=ru&user_id=%@&fields=bdate,photo_100",[[self storageService] userVkId]]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0];
     
     NSURLSession *jsonSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionDataTask *dataTask = [jsonSession dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
@@ -75,7 +80,7 @@
             NSLog(@"%@", error);
         } else {
         NSDictionary *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        NSMutableArray *friendsArray = [[TAApplicationStorage sharedLocator] friendsArray];
+        NSMutableArray *friendsArray = [[self storageService] friendsArray];
         if (error) {
             NSLog(@"JSONObjectWithData error: %@", error);
         } else {
@@ -105,7 +110,7 @@
         }
         }
         [self performSelectorOnMainThread:@selector(initFriendsDone) withObject:nil waitUntilDone:YES];
-        NSLog(@"End with: %ld friends",friendsArray.count);
+        NSLog(@"End with: %d friends",friendsArray.count);
         }
     }];
     
@@ -115,7 +120,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableArray *friendsArray = [[TAApplicationStorage sharedLocator] friendsArray];
+    NSMutableArray *friendsArray = [[self storageService] friendsArray];
     self.filteredFriendsArray = [[NSMutableArray alloc] init];
     if (self.searchingText != nil && ![self.searchingText isEqual:@""]) {
         for (NSInteger i = 0; i < friendsArray.count; i++) {
@@ -123,7 +128,6 @@
                 [self.filteredFriendsArray addObject: [friendsArray objectAtIndex:i]];
             }
         }
-
     } else {
         self.filteredFriendsArray = friendsArray;
     }
@@ -148,15 +152,14 @@
 #pragma mark - TAFriendVKCellDelegate
 - (void) wasCheckedFriendCell:(TAFriendVKCell*)cell
 {
-    NSInteger subscribersCount = [[[[TAApplicationStorage sharedLocator] changingBirthday] subscribers]count];
-    self.navBar.navBarLabel.text = [NSString stringWithFormat:@"Добавлено %ld",subscribersCount];
+    NSInteger subscribersCount = [[[[self storageService] changingBirthday] subscribers]count];
+    self.navBar.navBarLabel.text = [NSString stringWithFormat:@"Добавлено %d",subscribersCount];
 }
 
 #pragma mark - UITableViewDelegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.friendsTableView deselectRowAtIndexPath:indexPath animated:NO];
-    //[self.friendsTableView reloadData];
 }
 
 
@@ -179,25 +182,6 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    NSLog(@"textFieldShouldBeginEditing");
-    return YES;
-}// return NO to disallow editing.
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSLog(@"textFieldDidBeginEditing");
-}// became first responder
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    NSLog(@"textFieldShouldEndEditing");
-    return YES;
-}// return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    NSLog(@"textFieldDidEndEditing");
-}// may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if ([string length] > 1) {
@@ -207,18 +191,5 @@
     [self.friendsTableView reloadData];
     return YES;
 }
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    NSLog(@"textFieldShouldClear");
-    return YES;
-}// called when clear button pressed. return NO to ignore (no notifications)
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    NSLog(@"textFieldShouldReturn");
-    return YES;
-}
-
-
 
 @end

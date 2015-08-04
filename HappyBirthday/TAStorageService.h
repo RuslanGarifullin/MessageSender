@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 @class TABirthday, TAFriend;
 
-@interface TAApplicationStorage : NSObject
+@interface TAStorageService : NSObject
 
 @property (strong, nonatomic) NSMutableArray *birthdaysArray;
 @property (strong, nonatomic) NSMutableArray *friendsArray;
+@property (strong, nonatomic) NSMutableArray *holidayArray;
 
 @property (copy, nonatomic) TABirthday *changingBirthday;
 @property (assign, nonatomic) NSUInteger changingIndex;
@@ -21,7 +22,6 @@
 @property (strong, nonatomic) NSString *userVkId;
 @property (strong, nonatomic) NSString *userName;
 
-+ (instancetype) sharedLocator;
 - (void) startChangingBirthdayAtIndex:(NSUInteger)index;
 - (void) accessChanging;
 - (void) removeCurrentBirthday;

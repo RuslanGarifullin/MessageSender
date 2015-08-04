@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "TANavigationBar.h"
 #import "AppDelegate.h"
+#import "TAServiceLocator.h"
+#import "TAStorageService.h"
 
 
 @interface VKAuthViewController () <UIWebViewDelegate, TANavigationBarDelegate>
@@ -51,8 +53,8 @@
         [gotValues setObject:[data objectAtIndex:1] forKey:@"access_token"];
         [gotValues setObject:[data objectAtIndex:3] forKey:@"expires_in"];
         [gotValues setObject:[data objectAtIndex:5] forKey:@"user_id"];
-        [[TAApplicationStorage sharedLocator] setAccessToken:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"access_token"]]];
-        [[TAApplicationStorage sharedLocator] setUserVkId:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"user_id"]]];
+        [[self storageService] setAccessToken:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"access_token"]]];
+        [[self storageService] setUserVkId:[NSString stringWithFormat:@"%@",[gotValues objectForKey:@"user_id"]]];
         [[self navigationController] pushViewController:[[ViewController alloc] init] animated:YES];
     } else {
         NSRange textRange = [[currentURL lowercaseString] rangeOfString:@"error"];
@@ -73,9 +75,9 @@
     [self presentViewController:someAlertController animated:YES completion:nil];
 }
 
-- (IBAction)backButtonClick:(id)sender
+- (TAStorageService*)storageService
 {
-    [[self navigationController] popViewControllerAnimated:YES];
+    return [[TAServiceLocator sharedServiceLocator] mainStorageService];
 }
 
 #pragma mark - TANavigationBarDelegate

@@ -8,9 +8,10 @@
 
 #import "TAFriendVKCell.h"
 #import "TAFriend.h"
-#import "TAApplicationStorage.h"
 #import "TABirthday.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "TAServiceLocator.h"
+#import "TAStorageService.h"
 
 @interface TAFriendVKCell ()
 
@@ -40,7 +41,11 @@
     self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width/2.f;
     self.avatarImageView.layer.masksToBounds = YES;
     
-    [self setChecked:[[[TAApplicationStorage sharedLocator] changingBirthday] existSubscriberAtIndex:friend.vkId]];
+    [self setChecked:[[[self storageService] changingBirthday] existSubscriberAtIndex:friend.vkId]];
+}
+- (TAStorageService*) storageService
+{
+    return [[TAServiceLocator sharedServiceLocator] mainStorageService];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -57,12 +62,12 @@
 {
     if (checked) {
         //ADD
-        [[[TAApplicationStorage sharedLocator]changingBirthday] addSubscriberAtIndex: self.friend.vkId];
+        [[[self storageService] changingBirthday] addSubscriberAtIndex: self.friend.vkId];
         [self.addRemoveButton setImage:[UIImage imageNamed:@"ic_check_circle"] forState:UIControlStateNormal];
         
     } else {
         //remove
-        [[[TAApplicationStorage sharedLocator]changingBirthday] removeSubscriberAtIndex:self.friend.vkId];
+        [[[self storageService] changingBirthday] removeSubscriberAtIndex:self.friend.vkId];
         [self.addRemoveButton setImage:[UIImage imageNamed:@"ic_panorama_fish_eye"] forState:UIControlStateNormal];
     }
     _checked = checked;

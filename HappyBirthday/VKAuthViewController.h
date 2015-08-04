@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VKAuthViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIWebView *vkAuthWebView;
 
 @end

@@ -6,22 +6,12 @@
 //  Copyright (c) 2015 Tagbergenev Arman. All rights reserved.
 //
 
-#import "TAApplicationStorage.h"
+#import "TAStorageService.h"
 #import "TABirthday.h"
 #import "TAFriend.h"
 #import "AppDelegate.h"
 
-@interface TAApplicationStorage ()
-
-@end
-
-@implementation TAApplicationStorage
-
-+ (instancetype) sharedLocator
-{
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    return appDelegate.storage;
-}
+@implementation TAStorageService
 
 - (instancetype)init
 {

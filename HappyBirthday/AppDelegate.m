@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "ChangingViewController.h"
 #import "WelcomeViewController.h"
-#import "TAApplicationStorage.h"
+#import "TAServiceLocator.h"
 
 @interface AppDelegate ()
 
@@ -28,10 +28,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.storage = [[TAApplicationStorage alloc] init];
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[WelcomeViewController alloc] init]];
-    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [navController setNavigationBarHidden:YES];
     window.rootViewController = navController;
     self.window = window;
@@ -39,11 +37,11 @@
     return YES;
 }
 
-- (TAApplicationStorage*) storage {
-    if (_storage == nil) {
-        _storage = [[TAApplicationStorage alloc] init];
+- (TAServiceLocator*) serviceLocator {
+    if (_serviceLocator == nil) {
+        _serviceLocator = [[TAServiceLocator alloc] init];
     }
-    return _storage;
+    return _serviceLocator;
 }
 
 

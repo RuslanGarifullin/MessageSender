@@ -10,8 +10,9 @@
 #import "TABirthday.h"
 #import "ChangingViewController.h"
 #import "TANavigationBar.h"
-#import "TAApplicationStorage.h"
 #import "TATableViewCell.h"
+#import "TAServiceLocator.h"
+#import "TAStorageService.h"
 
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, TANavigationBarDelegate>
@@ -33,8 +34,21 @@
     self.navBar.navBarLabel.text = @"Сообщения";
     [self.navBar setDelegate:self];
     
+    
+    
+    
+    
+    
+    
+    
+    
     UINib *nib = [UINib nibWithNibName:@"TATableViewCell" bundle:nil];
     [self.birthdayTableView registerNib:nib forCellReuseIdentifier:@"TATableViewCell"];
+}
+
+- (TAStorageService*)storageService
+{
+    return [[TAServiceLocator sharedServiceLocator] mainStorageService];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,22 +59,22 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    TAApplicationStorage *storage = [TAApplicationStorage sharedLocator];
-    if ([[storage birthdaysArray] count] == 0) {
+
+    if ([[[self storageService] birthdaysArray] count] == 0) {
         [self.haveNothingNotificationView setHidden:NO];
         [self.birthdayTableView setHidden:YES];
     } else {
         [self.haveNothingNotificationView setHidden:YES];
         [self.birthdayTableView setHidden:NO];
     }
-    return [[storage birthdaysArray] count];
+    return [[[self storageService] birthdaysArray] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"TATableViewCell";
     TATableViewCell *cell = [self.birthdayTableView dequeueReusableCellWithIdentifier:identifier];
-    TABirthday *birthday = [[[TAApplicationStorage sharedLocator] birthdaysArray] objectAtIndex:indexPath.row];
+    TABirthday *birthday = [[[self storageService] birthdaysArray] objectAtIndex:indexPath.row];
     
     //TITLE
     cell.titleLable.text = birthday.title;
@@ -89,13 +103,11 @@
     return 70;
 }
 
-
-
 #pragma mark - UITableViewDelegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.birthdayTableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[TAApplicationStorage sharedLocator] startChangingBirthdayAtIndex:indexPath.row];
+    [[self storageService] startChangingBirthdayAtIndex:indexPath.row];
     ChangingViewController *changintVC = [[ChangingViewController alloc] init];
     [self.navigationController pushViewController:changintVC animated:YES];
 }
@@ -103,7 +115,7 @@
 #pragma mark - TANavigationBarDelegate
 - (void) navigationBar:(TANavigationBar *)navBar addButtonClicked:(UIButton *)button
 {
-    [[TAApplicationStorage sharedLocator] createNewBirthdayAndStartChanging];
+    [[self storageService] createNewBirthdayAndStartChanging];
     ChangingViewController *changintVC = [[ChangingViewController alloc] init];
     [self.navigationController pushViewController:changintVC animated:YES];
 }

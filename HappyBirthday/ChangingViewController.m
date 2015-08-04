@@ -10,7 +10,8 @@
 #import "TABirthday.h"
 #import "TAFriend.h"
 #import "TASubscriber.h"
-#import "TAApplicationStorage.h"
+#import "TAServiceLocator.h"
+#import "TAStorageService.h"
 #import "TANavigationBar.h"
 #import "TAChangingCell.h"
 #import "TimeModelViewController.h"
@@ -18,7 +19,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ChangingViewController () <TANavigationBarDelegate, UITableViewDataSource, UITableViewDelegate, TimeModelViewControllerDelegate>
-
 
 @property (strong, nonatomic) UIAlertController *alertController;
 @property (strong, nonatomic) IBOutlet TANavigationBar *navBar;
@@ -54,7 +54,6 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.optionsTableView reloadData];
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -96,7 +95,7 @@
 
 - (void) navigationBar:(TANavigationBar *)navBar doneButtonClicked:(UIButton *)button
 {
-    TABirthday *birthday = [[TAApplicationStorage sharedLocator] changingBirthday];
+    TABirthday *birthday = [[self storageService] changingBirthday];
     birthday.title = [self removeAllDoubleSpaces: self.generalTitleTextField.text];
     birthday.enable = [self.enableSwitch isOn];
     if ([birthday.title isEqual:@""]) {
@@ -108,13 +107,13 @@
         [self presentViewController:someAlertController animated:YES completion:nil];
         return;
     }
-    [[TAApplicationStorage sharedLocator] accessChanging];
+    [[self storageService] accessChanging];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) navigationBar:(TANavigationBar *)navBar deleteButtonClicked:(UIButton *)button
 {
-    [[TAApplicationStorage sharedLocator] removeCurrentBirthday];
+    [[self storageService] removeCurrentBirthday];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -132,7 +131,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"TAChangingCell";
-    TABirthday *birthday = [[TAApplicationStorage sharedLocator] changingBirthday];
+    TABirthday *birthday = [[self storageService] changingBirthday];
     TAChangingCell *cell = [self.optionsTableView dequeueReusableCellWithIdentifier:identifier];
     switch (indexPath.row) {
         case 0:
@@ -151,12 +150,12 @@
             break;
         case 2:
             [cell.titleLabel setText:@"Получатели"];
-            [cell.descriptionLabel setText:[NSString stringWithFormat:@"%ld",birthday.subscribers.count]];
+            [cell.descriptionLabel setText:[NSString stringWithFormat:@"%d",birthday.subscribers.count]];
             [cell.leftImageView setImage:[UIImage imageNamed:@"ic_face"]];
             self.friendsAvatars = [[NSMutableArray alloc] init];
             for (int i = 0; i < birthday.subscribers.count; i++) {
                 TASubscriber *subscr = [birthday.subscribers objectAtIndex:i];
-                TAFriend *friend = [[TAApplicationStorage sharedLocator] friendAtId:subscr.userId];
+                TAFriend *friend = [[self storageService] friendAtId:subscr.userId];
                 if (friend == nil) {
                     continue;
                 }
@@ -194,12 +193,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 2 &&[[[[TAApplicationStorage sharedLocator] changingBirthday] subscribers] count] > 0) {
+    if (indexPath.row == 2 &&[[[[self storageService] changingBirthday] subscribers] count] > 0) {
             return 80;
         }
     return 50;
 }
 
+- (TAStorageService*)storageService
+{
+    return [[TAServiceLocator sharedServiceLocator] mainStorageService];
+}
 
 #pragma mark - UITableViewDelegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

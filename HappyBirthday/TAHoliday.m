@@ -25,14 +25,11 @@
 {
     self = [super init];
     if (self) {
-        _name = name;
-        _categoryIndex = categoryIndex;
-        //1.1;1.4;9.12;9.11;1.4;10.10;11.12;31.12
-
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"d.m"];
         _date = [dateFormatter dateFromString:dateString];
-    }
+        _name = name;
+        _categoryIndex = categoryIndex;    }
     return self;
 }
 

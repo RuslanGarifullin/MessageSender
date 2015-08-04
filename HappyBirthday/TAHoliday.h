@@ -10,9 +10,9 @@
 
 @interface TAHoliday : NSObject
 
-@property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) NSUInteger categoryIndex;
+@property (nonatomic, strong, readonly) NSDate *date;
+@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, assign, readonly) NSUInteger categoryIndex;
 - (id) initWithName:(NSString*)name date:(NSDate*)date categoryIndex:(NSInteger)categoryIndex;
 - (id) initWithName:(NSString*)name dateString:(NSString*)dateString categoryIndex:(NSInteger)categoryIndex;
 

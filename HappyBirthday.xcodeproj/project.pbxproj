@@ -13,7 +13,7 @@
 		3447CBA71B6799E2008B49E3 /* logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3447CBA61B6799E2008B49E3 /* logo_white.png */; };
 		3447CBAB1B679CC8008B49E3 /* TANavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3447CBAA1B679CC8008B49E3 /* TANavigationBar.m */; };
 		3447CBAD1B679CE3008B49E3 /* TANavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3447CBAC1B679CE3008B49E3 /* TANavigationBar.xib */; };
-		3447CBBE1B67E512008B49E3 /* TAApplicationStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3447CBBD1B67E512008B49E3 /* TAApplicationStorage.m */; };
+		3447CBBE1B67E512008B49E3 /* TAStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3447CBBD1B67E512008B49E3 /* TAStorageService.m */; };
 		345ECAB61B6E18BD007D821A /* ic_check_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 345ECAB31B6E18BD007D821A /* ic_check_circle@2x.png */; };
 		345ECAB71B6E18BD007D821A /* ic_check_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 345ECAB41B6E18BD007D821A /* ic_check_circle@3x.png */; };
 		345ECAB81B6E18BD007D821A /* ic_check_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 345ECAB51B6E18BD007D821A /* ic_check_circle.png */; };
@@ -96,6 +96,9 @@
 		3493BFDE1B65A08800F80989 /* ic_power_settings_new@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3493BFDB1B65A08800F80989 /* ic_power_settings_new@3x.png */; };
 		3493BFDF1B65A08800F80989 /* ic_power_settings_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 3493BFDC1B65A08800F80989 /* ic_power_settings_new.png */; };
 		34A255B41B6E33E200193D36 /* TASubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A255B31B6E33E200193D36 /* TASubscriber.m */; };
+		34D5D3121B710233004D0C28 /* TAServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3111B710233004D0C28 /* TAServiceLocator.m */; };
+		34D5D3151B710252004D0C28 /* TAApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3141B710252004D0C28 /* TAApiService.m */; };
+		34D5D3181B71027A004D0C28 /* TAApiRequestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3171B71027A004D0C28 /* TAApiRequestExecutor.m */; };
 		D37685C004FA9A3F720F693E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B50ADF9C604D34DECF8AE8C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,8 +120,8 @@
 		3447CBA91B679CC8008B49E3 /* TANavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TANavigationBar.h; sourceTree = "<group>"; };
 		3447CBAA1B679CC8008B49E3 /* TANavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TANavigationBar.m; sourceTree = "<group>"; };
 		3447CBAC1B679CE3008B49E3 /* TANavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TANavigationBar.xib; sourceTree = "<group>"; };
-		3447CBBC1B67E512008B49E3 /* TAApplicationStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAApplicationStorage.h; sourceTree = "<group>"; };
-		3447CBBD1B67E512008B49E3 /* TAApplicationStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAApplicationStorage.m; sourceTree = "<group>"; };
+		3447CBBC1B67E512008B49E3 /* TAStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAStorageService.h; sourceTree = "<group>"; };
+		3447CBBD1B67E512008B49E3 /* TAStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAStorageService.m; sourceTree = "<group>"; };
 		345ECAB31B6E18BD007D821A /* ic_check_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_check_circle@2x.png"; sourceTree = "<group>"; };
 		345ECAB41B6E18BD007D821A /* ic_check_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_check_circle@3x.png"; sourceTree = "<group>"; };
 		345ECAB51B6E18BD007D821A /* ic_check_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_circle.png; sourceTree = "<group>"; };
@@ -220,6 +223,12 @@
 		3493BFDC1B65A08800F80989 /* ic_power_settings_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_power_settings_new.png; sourceTree = "<group>"; };
 		34A255B21B6E33E200193D36 /* TASubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TASubscriber.h; sourceTree = "<group>"; };
 		34A255B31B6E33E200193D36 /* TASubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TASubscriber.m; sourceTree = "<group>"; };
+		34D5D3101B710233004D0C28 /* TAServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAServiceLocator.h; sourceTree = "<group>"; };
+		34D5D3111B710233004D0C28 /* TAServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAServiceLocator.m; sourceTree = "<group>"; };
+		34D5D3131B710252004D0C28 /* TAApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAApiService.h; sourceTree = "<group>"; };
+		34D5D3141B710252004D0C28 /* TAApiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAApiService.m; sourceTree = "<group>"; };
+		34D5D3161B71027A004D0C28 /* TAApiRequestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAApiRequestExecutor.h; sourceTree = "<group>"; };
+		34D5D3171B71027A004D0C28 /* TAApiRequestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAApiRequestExecutor.m; sourceTree = "<group>"; };
 		4442BC8598C4D673C3F23CE7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		62C59D2F7C32E119ACA3BC8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B50ADF9C604D34DECF8AE8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,13 +318,14 @@
 		3493BF051B64F1C500F80989 /* HappyBirthday */ = {
 			isa = PBXGroup;
 			children = (
+				34D5D30F1B7101CE004D0C28 /* LocatorAndServices */,
+				3493BF4B1B651D9D00F80989 /* Models */,
 				34883B951B6FA1E400FA1A3B /* CustomHolidayCell */,
 				347B2A5A1B6B90D70050D248 /* CustomFriendCell */,
 				347B2A541B6B6EB70050D248 /* CustomCellForChanging */,
 				3493BF061B64F1C500F80989 /* Supporting Files */,
 				3470B6DC1B6A494800AF8648 /* CustomTableViewCell */,
 				3447CBA81B679C83008B49E3 /* CustomNavigationBar */,
-				3493BF4B1B651D9D00F80989 /* Models */,
 				3493BF131B64F1C500F80989 /* Images.xcassets */,
 				3493BF341B65070E00F80989 /* Images */,
 				3493BF0A1B64F1C500F80989 /* AppDelegate.h */,
@@ -333,8 +343,6 @@
 				34854B531B6641E200DF524D /* VKAuthViewController.h */,
 				34854B541B6641E200DF524D /* VKAuthViewController.m */,
 				34854B551B6641E200DF524D /* VKAuthViewController.xib */,
-				3447CBBC1B67E512008B49E3 /* TAApplicationStorage.h */,
-				3447CBBD1B67E512008B49E3 /* TAApplicationStorage.m */,
 				347B2A721B6B9E5A0050D248 /* FriendsViewController.h */,
 				347B2A731B6B9E5A0050D248 /* FriendsViewController.m */,
 				347B2A741B6B9E5A0050D248 /* FriendsViewController.xib */,
@@ -446,8 +454,23 @@
 				34A255B31B6E33E200193D36 /* TASubscriber.m */,
 				34883B9B1B6FB8B700FA1A3B /* TAHoliday.h */,
 				34883B9C1B6FB8B700FA1A3B /* TAHoliday.m */,
+				34D5D3161B71027A004D0C28 /* TAApiRequestExecutor.h */,
+				34D5D3171B71027A004D0C28 /* TAApiRequestExecutor.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		34D5D30F1B7101CE004D0C28 /* LocatorAndServices */ = {
+			isa = PBXGroup;
+			children = (
+				3447CBBC1B67E512008B49E3 /* TAStorageService.h */,
+				3447CBBD1B67E512008B49E3 /* TAStorageService.m */,
+				34D5D3101B710233004D0C28 /* TAServiceLocator.h */,
+				34D5D3111B710233004D0C28 /* TAServiceLocator.m */,
+				34D5D3131B710252004D0C28 /* TAApiService.h */,
+				34D5D3141B710252004D0C28 /* TAApiService.m */,
+			);
+			name = LocatorAndServices;
 			sourceTree = "<group>";
 		};
 		3B0D144F5C62C1E05C4AC8ED /* Pods */ = {
@@ -674,10 +697,13 @@
 				347B2A751B6B9E5A0050D248 /* FriendsViewController.m in Sources */,
 				34883B931B6F70E700FA1A3B /* TimeModelViewController.m in Sources */,
 				3447CBAB1B679CC8008B49E3 /* TANavigationBar.m in Sources */,
+				34D5D3151B710252004D0C28 /* TAApiService.m in Sources */,
+				34D5D3181B71027A004D0C28 /* TAApiRequestExecutor.m in Sources */,
 				34883B991B6FA2E400FA1A3B /* CustomHolidayCell.m in Sources */,
 				3493BF511B651DFB00F80989 /* TABirthday.m in Sources */,
+				34D5D3121B710233004D0C28 /* TAServiceLocator.m in Sources */,
 				34854B561B6641E200DF524D /* VKAuthViewController.m in Sources */,
-				3447CBBE1B67E512008B49E3 /* TAApplicationStorage.m in Sources */,
+				3447CBBE1B67E512008B49E3 /* TAStorageService.m in Sources */,
 				3470B6D71B6A241C00AF8648 /* TATableViewCell.m in Sources */,
 				347B2A581B6B6EFD0050D248 /* TAChangingCell.m in Sources */,
 				3493BF0C1B64F1C500F80989 /* AppDelegate.m in Sources */,

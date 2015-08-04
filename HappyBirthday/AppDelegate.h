@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TAApplicationStorage.h"
+@class TAServiceLocator;
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) TAApplicationStorage *storage;
+@property (strong, nonatomic) TAServiceLocator *serviceLocator;
 
 @end
 
