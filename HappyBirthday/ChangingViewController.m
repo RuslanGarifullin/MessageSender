@@ -17,6 +17,8 @@
 #import "TimeModelViewController.h"
 #import "FriendsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "TextViewController.h"
+
 
 @interface ChangingViewController () <TANavigationBarDelegate, UITableViewDataSource, UITableViewDelegate, TimeModelViewControllerDelegate>
 
@@ -222,6 +224,47 @@
         [navigationController.navigationBar setHidden:YES];
         [self presentViewController:navigationController animated:YES completion:nil];
     }
+    
+    
+   
+    if (indexPath.row==4) {
+        
+        [self.optionsTableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSLog(@"%ld",indexPath.row);
+        
+        
+        UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        
+        UIAlertAction *newPattern= [UIAlertAction actionWithTitle:@"Создать шаблон" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            TextViewController *textview=[TextViewController new];
+            [self.navigationController pushViewController:textview animated:YES];
+            
+        }];
+        
+        UIAlertAction *changePattern= [UIAlertAction actionWithTitle:@"Изменить шаблон" style:UIAlertActionStyleDefault handler:nil];
+        
+        UIAlertAction *myPattern= [UIAlertAction actionWithTitle:@"Мои шаблоны" style:UIAlertActionStyleDefault handler:nil];
+        
+        
+        UIAlertAction *defaultPattern= [UIAlertAction actionWithTitle:@"Готовые шаблоны" style:UIAlertActionStyleDefault handler:nil];
+        
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style: UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            [alertCtrl dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
+        
+        [alertCtrl addAction:newPattern];
+        [alertCtrl addAction:changePattern];
+        [alertCtrl addAction:myPattern];
+        [alertCtrl addAction:defaultPattern];
+        [alertCtrl addAction:cancelAction];
+        [self presentViewController:alertCtrl animated:YES completion:nil];
+    }
+
+    
+    
 }
 #pragma mark - TimeModelViewControllerDelegate
 - (void) timeModelViewController:(TimeModelViewController *)cancelled

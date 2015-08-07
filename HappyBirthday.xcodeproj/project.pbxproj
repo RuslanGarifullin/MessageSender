@@ -99,6 +99,9 @@
 		34D5D3121B710233004D0C28 /* TAServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3111B710233004D0C28 /* TAServiceLocator.m */; };
 		34D5D3151B710252004D0C28 /* TAApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3141B710252004D0C28 /* TAApiService.m */; };
 		34D5D3181B71027A004D0C28 /* TAApiRequestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5D3171B71027A004D0C28 /* TAApiRequestExecutor.m */; };
+		44DC139B1B7108A100472A01 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC13991B7108A100472A01 /* TextViewController.m */; };
+		44DC139C1B7108A100472A01 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44DC139A1B7108A100472A01 /* TextViewController.xib */; };
+		44DC13A01B71103100472A01 /* DataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC139F1B71103100472A01 /* DataBaseService.m */; };
 		D37685C004FA9A3F720F693E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B50ADF9C604D34DECF8AE8C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +233,11 @@
 		34D5D3161B71027A004D0C28 /* TAApiRequestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAApiRequestExecutor.h; sourceTree = "<group>"; };
 		34D5D3171B71027A004D0C28 /* TAApiRequestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAApiRequestExecutor.m; sourceTree = "<group>"; };
 		4442BC8598C4D673C3F23CE7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		44DC13981B7108A100472A01 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		44DC13991B7108A100472A01 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		44DC139A1B7108A100472A01 /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		44DC139E1B71103100472A01 /* DataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseService.h; sourceTree = "<group>"; };
+		44DC139F1B71103100472A01 /* DataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseService.m; sourceTree = "<group>"; };
 		62C59D2F7C32E119ACA3BC8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B50ADF9C604D34DECF8AE8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -320,6 +328,8 @@
 			children = (
 				34D5D30F1B7101CE004D0C28 /* LocatorAndServices */,
 				3493BF4B1B651D9D00F80989 /* Models */,
+				44DC139D1B710FF900472A01 /* DataBaseService */,
+				44DC13971B71087E00472A01 /* TextViewController */,
 				34883B951B6FA1E400FA1A3B /* CustomHolidayCell */,
 				347B2A5A1B6B90D70050D248 /* CustomFriendCell */,
 				347B2A541B6B6EB70050D248 /* CustomCellForChanging */,
@@ -482,6 +492,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		44DC13971B71087E00472A01 /* TextViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44DC13981B7108A100472A01 /* TextViewController.h */,
+				44DC13991B7108A100472A01 /* TextViewController.m */,
+				44DC139A1B7108A100472A01 /* TextViewController.xib */,
+			);
+			name = TextViewController;
+			sourceTree = "<group>";
+		};
+		44DC139D1B710FF900472A01 /* DataBaseService */ = {
+			isa = PBXGroup;
+			children = (
+				44DC139E1B71103100472A01 /* DataBaseService.h */,
+				44DC139F1B71103100472A01 /* DataBaseService.m */,
+			);
+			name = DataBaseService;
+			sourceTree = "<group>";
+		};
 		A8677CAF3B3C149E3B1B3799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +625,7 @@
 				34854B5D1B665B7100DF524D /* ic_notifications.png in Resources */,
 				34854B5C1B665B7100DF524D /* ic_notifications@3x.png in Resources */,
 				3493BFBF1B65931400F80989 /* ic_face.png in Resources */,
+				44DC139C1B7108A100472A01 /* TextViewController.xib in Resources */,
 				3493BF331B65069400F80989 /* ic_add_white.png in Resources */,
 				345ECABD1B6E194F007D821A /* ic_panorama_fish_eye@3x.png in Resources */,
 				345ECAB71B6E18BD007D821A /* ic_check_circle@3x.png in Resources */,
@@ -700,6 +730,7 @@
 				34D5D3151B710252004D0C28 /* TAApiService.m in Sources */,
 				34D5D3181B71027A004D0C28 /* TAApiRequestExecutor.m in Sources */,
 				34883B991B6FA2E400FA1A3B /* CustomHolidayCell.m in Sources */,
+				44DC139B1B7108A100472A01 /* TextViewController.m in Sources */,
 				3493BF511B651DFB00F80989 /* TABirthday.m in Sources */,
 				34D5D3121B710233004D0C28 /* TAServiceLocator.m in Sources */,
 				34854B561B6641E200DF524D /* VKAuthViewController.m in Sources */,
@@ -708,6 +739,7 @@
 				347B2A581B6B6EFD0050D248 /* TAChangingCell.m in Sources */,
 				3493BF0C1B64F1C500F80989 /* AppDelegate.m in Sources */,
 				3493BF091B64F1C500F80989 /* main.m in Sources */,
+				44DC13A01B71103100472A01 /* DataBaseService.m in Sources */,
 				34854B4A1B663B2800DF524D /* WelcomeViewController.m in Sources */,
 				34A255B41B6E33E200193D36 /* TASubscriber.m in Sources */,
 				3493BF5A1B654CC400F80989 /* ChangingViewController.m in Sources */,

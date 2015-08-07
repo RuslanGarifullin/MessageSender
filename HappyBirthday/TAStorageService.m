@@ -10,6 +10,8 @@
 #import "TABirthday.h"
 #import "TAFriend.h"
 #import "AppDelegate.h"
+#import "DataBaseService.h"
+
 
 @implementation TAStorageService
 
